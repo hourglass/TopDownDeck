@@ -77,10 +77,7 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         if (currentState == PlayerState.Attack) { return; }
-        ChangeState(PlayerState.Attack);
-
-        rb.velocity = Vector2.zero;
-
+        
         // 마우스와 플레이어의 스크린 좌표 가져오기
         Vector3 mouseScreenPoint = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
@@ -90,11 +87,15 @@ public class PlayerController : MonoBehaviour
         mouseDirection.Normalize();
 
         // 벡터의 값을 -1 ~ 1 범위로 변환
-       float mouseX = Vector3.Dot(transform.right, mouseDirection);
-       float mouseY = Vector3.Dot(transform.up, mouseDirection);
+        float mouseX = Vector3.Dot(transform.right, mouseDirection);
+        float mouseY = Vector3.Dot(transform.up, mouseDirection);
 
         myAnimator.SetFloat("MouseX", mouseX);
         myAnimator.SetFloat("MouseY", mouseY);
+
+        rb.velocity = Vector2.zero;
+
+        ChangeState(PlayerState.Attack);
 
         Invoke("ReturnIdle", 0.5f);
     }
