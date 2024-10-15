@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c8b4e6dcfb54c0439a1b3012c2a4dee
+guid: 95380adf09b86154fbe3802dcef3e3e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash Back_0
+      name: MoveUp_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86ee01110ddf7c4497ed495248d64d4
+      internalID: 685787768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a6041b2a4806c4f8931e02829af6a1
+      internalID: 1405648512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aadc08b4301f08f428c502418dda4dcd
+      internalID: -1771112645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2049cf624d9822d4e9b20ef0a8700183
+      internalID: 1072867906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf9eabe383682f439fee8dbd42130be
+      internalID: -752746541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab86dc2da4da9d4a93fdde5041e9c28
+      internalID: -1641987660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_6
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b37b25f0779e494fb18079870318116
-      internalID: 627618969
+      spriteID: 77f29bd5763db4b458d79a48d6c8e4e0
+      internalID: 2096074696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Back_1
+      name: MoveUp_7
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a6e07616a85294e88ef306c8dbeb04
-      internalID: -954556411
+      spriteID: ea620d9b1c51d0e42b738d191ea537ed
+      internalID: 1701021220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Back_2
+      name: MoveUp_8
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d0ef74e7ffd3f041bfe6a762a6a1a7c
-      internalID: 2087490764
+      spriteID: 07249e6cc4e558343b4208ac631422a6
+      internalID: 115500741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Back_3
+      name: MoveUp_9
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +326,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cd924a298c05374fabadeaefc504433
-      internalID: 966928426
+      spriteID: 3221a1d3ee87b7e42a0619288b2ea1a5
+      internalID: 1604600691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b117300b02dee41968a15db82c505c
+      internalID: 357855916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveUp_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5019194b0511887408a628fa050adbc5
+      internalID: 951594857
       vertices: []
       indices: 
       edges: []
@@ -217,10 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash Back_0: 627618969
-      Dash Back_1: -954556411
-      Dash Back_2: 2087490764
-      Dash Back_3: 966928426
+      MoveUp_0: 685787768
+      MoveUp_1: 1405648512
+      MoveUp_10: 357855916
+      MoveUp_11: 951594857
+      MoveUp_2: -1771112645
+      MoveUp_3: 1072867906
+      MoveUp_4: -752746541
+      MoveUp_5: -1641987660
+      MoveUp_6: 2096074696
+      MoveUp_7: 1701021220
+      MoveUp_8: 115500741
+      MoveUp_9: 1604600691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

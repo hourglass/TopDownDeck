@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f68066abe45ceb646acebaac6832fd1d
+guid: 30dc20bb6b319964a828c29897c8855e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slash Left_0
+      name: SlashDown_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936e4e9c045241f4f934e1565a623c44
+      internalID: -803219901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashDown_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1375b22d88cb29d47a4d24508835dffd
+      internalID: 740262230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashDown_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc52223adedde674483b12a7eab0e11f
+      internalID: 1289524872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashDown_3
       rect:
         serializedVersion: 2
         x: 192
@@ -137,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a6c0ea0c23c3f2488e71415f1f30333
-      internalID: -1594938088
+      spriteID: e77aea05a1c185341ab24a7295a15a9a
+      internalID: -995846448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_1
+      name: SlashDown_4
       rect:
         serializedVersion: 2
         x: 256
@@ -158,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49f4f3eff427ad84d8f22354f961a768
-      internalID: 1514814405
+      spriteID: 01644f70aa3a47546916c6568e8c37de
+      internalID: -1798121028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_2
+      name: SlashDown_5
       rect:
         serializedVersion: 2
         x: 320
@@ -179,77 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2269e6fba23aec4683932e323fa5fc9
-      internalID: -2046872965
+      spriteID: 5280fb5ae6199264196379bfbd1f28b9
+      internalID: -922471567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e23bc5dbfd1fe864cbec5a7e60bd7c63
-      internalID: 408291251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slash Left_4
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e046436dc5a3254469051758dc161831
-      internalID: 1827688745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slash Left_5
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a05133ff364a0f4eae1316796d09f68
-      internalID: 1487968763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slash Left_6
+      name: SlashDown_6
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 231b871e7f6ee69478def1176645d44e
-      internalID: -1705429600
+      spriteID: 8fe7da2cc70a9d54ba2b45cecf946803
+      internalID: -256388273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_7
+      name: SlashDown_7
       rect:
         serializedVersion: 2
         x: 64
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d35cb608a0c69488e91ad5b6e369e2
-      internalID: -1280135027
+      spriteID: adeb10207a503f44a9bd379224b7fd77
+      internalID: -1280466963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_8
+      name: SlashDown_8
       rect:
         serializedVersion: 2
         x: 128
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd1a593fe05e6784796b15c3a8cb7813
-      internalID: 357842214
+      spriteID: a1a1babc8b2754f4a876743cb6733201
+      internalID: 1126851875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_9
+      name: SlashDown_9
       rect:
         serializedVersion: 2
         x: 192
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96675eae08a9d3a478ec6ac3205eca60
-      internalID: 796352860
+      spriteID: c4ae5903a62628847a98dbc70b37c0f7
+      internalID: -991054603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_10
+      name: SlashDown_10
       rect:
         serializedVersion: 2
         x: 256
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6531b21e493a90c42a3044fea1d3525c
-      internalID: 425272186
+      spriteID: 33d36368056b82b4c898c7dca0eeba35
+      internalID: -1320948447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_11
+      name: SlashDown_11
       rect:
         serializedVersion: 2
         x: 320
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ad4c36d391b10448a37c8bad62058f6
-      internalID: -1290571173
+      spriteID: 807b565ae5913c24ab771a7f6aa172b5
+      internalID: 490387090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_12
+      name: SlashDown_12
       rect:
         serializedVersion: 2
         x: 384
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb67c36c0cb5f04096622fb6e7581bb
-      internalID: -1663338093
+      spriteID: 53a9278a7365ac84fa79d35e0b1aa8ff
+      internalID: 349598045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_13
+      name: SlashDown_13
       rect:
         serializedVersion: 2
         x: 448
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918e9f3b82eb29a4d8d0d4580ec60354
-      internalID: -1365852972
+      spriteID: 8aa3357191455ae46856a52dd0673c64
+      internalID: 993326610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_14
+      name: SlashDown_14
       rect:
         serializedVersion: 2
         x: 512
@@ -431,14 +431,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10a79fdac4dd8bc4597d0bcd6f942598
-      internalID: 895460622
+      spriteID: 5d4c73d3a03b0b34793e9e5f35fda380
+      internalID: -39060293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_15
+      name: SlashDown_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102fafcc57f05d549993d2c89755b4c7
+      internalID: 1784135668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashDown_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5848bd1fe8c559f4d8c0a97213920fcf
+      internalID: 77349383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashDown_17
       rect:
         serializedVersion: 2
         x: 128
@@ -452,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ad9257bbf4d439489949f2f6f4bd0e2
-      internalID: 888652789
+      spriteID: 76a6351219a8d1a408a6fae11fac2674
+      internalID: 173189067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_16
+      name: SlashDown_18
       rect:
         serializedVersion: 2
         x: 192
@@ -473,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fb81ae7ae75aeb4ea238508e2d83eca
-      internalID: 1468162106
+      spriteID: 69ecbbbf7047a4049a3e5fe1a1489999
+      internalID: 862252518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_17
+      name: SlashDown_19
       rect:
         serializedVersion: 2
         x: 256
@@ -494,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d36c1f8c690b284fab4bfdf847971bd
-      internalID: 1330380984
+      spriteID: 2e39d47f0b1e98948bbb97cb065f5f40
+      internalID: 224249042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_18
+      name: SlashDown_20
       rect:
         serializedVersion: 2
         x: 320
@@ -515,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25189a5b275dc7f4880ea88a0e5994e4
-      internalID: 1502275792
+      spriteID: 5cc7c36c0b491db418c63e6f93339ac5
+      internalID: 441593717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash Left_19
+      name: SlashDown_21
       rect:
         serializedVersion: 2
         x: 384
@@ -536,50 +578,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8f8870bc67aeb9468fa83d2277a7e94
-      internalID: -1798132574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slash Left_20
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2e915f749d9415489e91186bd74742b
-      internalID: 1265788801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slash Left_21
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28ef4bc2e289b1048b51dc04d077e176
-      internalID: 367332321
+      spriteID: a5d11e3113f37484eada2bc9b1bae29e
+      internalID: -1074418738
       vertices: []
       indices: 
       edges: []
@@ -595,28 +595,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slash Left_0: -1594938088
-      Slash Left_1: 1514814405
-      Slash Left_10: 425272186
-      Slash Left_11: -1290571173
-      Slash Left_12: -1663338093
-      Slash Left_13: -1365852972
-      Slash Left_14: 895460622
-      Slash Left_15: 888652789
-      Slash Left_16: 1468162106
-      Slash Left_17: 1330380984
-      Slash Left_18: 1502275792
-      Slash Left_19: -1798132574
-      Slash Left_2: -2046872965
-      Slash Left_20: 1265788801
-      Slash Left_21: 367332321
-      Slash Left_3: 408291251
-      Slash Left_4: 1827688745
-      Slash Left_5: 1487968763
-      Slash Left_6: -1705429600
-      Slash Left_7: -1280135027
-      Slash Left_8: 357842214
-      Slash Left_9: 796352860
+      SlashDown_0: -803219901
+      SlashDown_1: 740262230
+      SlashDown_10: -1320948447
+      SlashDown_11: 490387090
+      SlashDown_12: 349598045
+      SlashDown_13: 993326610
+      SlashDown_14: -39060293
+      SlashDown_15: 1784135668
+      SlashDown_16: 77349383
+      SlashDown_17: 173189067
+      SlashDown_18: 862252518
+      SlashDown_19: 224249042
+      SlashDown_2: 1289524872
+      SlashDown_20: 441593717
+      SlashDown_21: -1074418738
+      SlashDown_3: -995846448
+      SlashDown_4: -1798121028
+      SlashDown_5: -922471567
+      SlashDown_6: -256388273
+      SlashDown_7: -1280466963
+      SlashDown_8: 1126851875
+      SlashDown_9: -991054603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f66ac0cf2cd7b14ebbfd4e1f312b9ad
+guid: a100430fcca93b343ab88b7c2df96872
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash Front_0
+      name: DashUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7d6a919a4a344a4eac5b43d73a83076
-      internalID: 1929479986
+      spriteID: 35d642bce9dadde4286db57b64d19e14
+      internalID: -1775126035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Front_1
+      name: DashUp_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a0b3ff4b6c0b6547bb0ae9c3f1e0fc8
-      internalID: -245281810
+      spriteID: fccde0533cdd1b44d91af154baa06c5a
+      internalID: 151511698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Front_2
+      name: DashUp_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 959ab588abf9033489e30a9850da12dd
-      internalID: -1735620054
+      spriteID: 021e5532705537040be3fb247c3e2cd6
+      internalID: 1556837512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Front_3
+      name: DashUp_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4a13123589ba8c458bab79737535f82
-      internalID: -1132215179
+      spriteID: 11c7536b607492f45bd278e9cedd23e2
+      internalID: -1181356210
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash Front_0: 1929479986
-      Dash Front_1: -245281810
-      Dash Front_2: -1735620054
-      Dash Front_3: -1132215179
+      DashUp_0: -1775126035
+      DashUp_1: 151511698
+      DashUp_2: 1556837512
+      DashUp_3: -1181356210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

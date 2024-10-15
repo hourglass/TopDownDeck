@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b93bdff1fbc45a45bf3eb745d564aa4
+guid: 79ab9ef2dab8a3c4095d4b7be7f495f9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,133 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move Back_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91a56f76cefbadf4c97d426659668966
-      internalID: -2131521440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d04382a0ac1a4d246bba1b7fe65e1eb4
-      internalID: 2066722067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7e7f7cf44f2e0b43b9b6bed20234225
-      internalID: -801400419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a911ee573ce6ab147aeef9fcac2655c8
-      internalID: -1467550088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5b054174e78ed44c829f460a9ff7092
-      internalID: 1523454756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9758129b546b8a14babdf39664c56efc
-      internalID: 215880841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_6
+      name: DashRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e70d135cd3f9c408f119bb67f634a9
-      internalID: -678737953
+      spriteID: bc53dda8173f0cb419802cb0e848aa95
+      internalID: 1256503237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Back_7
+      name: DashRight_1
       rect:
         serializedVersion: 2
         x: 64
@@ -284,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7986679933f1a354cbff2e02f6a8d67d
-      internalID: 929145819
+      spriteID: 1900e76ee5378fe4cbc3dc8242c04ab8
+      internalID: 899799675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Back_8
+      name: DashRight_2
       rect:
         serializedVersion: 2
         x: 128
@@ -305,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e849658584c9bd4a91e36f8b053cdcc
-      internalID: 1556468794
+      spriteID: b168760889e0e774c901c328b62490e4
+      internalID: 953465392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Back_9
+      name: DashRight_3
       rect:
         serializedVersion: 2
         x: 192
@@ -326,50 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03c6a7aec58bb5b48b86d9e9ae4e037b
-      internalID: 1306346078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b4c146a33f5540409fbf679155ccb4b
-      internalID: 385872805
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move Back_11
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d07802da292bd1845bcbc05ca049f686
-      internalID: -467782456
+      spriteID: 441ed777fe76c5c468781ecfb201985d
+      internalID: 10592942
       vertices: []
       indices: 
       edges: []
@@ -385,18 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Move Back_0: -2131521440
-      Move Back_1: 2066722067
-      Move Back_10: 385872805
-      Move Back_11: -467782456
-      Move Back_2: -801400419
-      Move Back_3: -1467550088
-      Move Back_4: 1523454756
-      Move Back_5: 215880841
-      Move Back_6: -678737953
-      Move Back_7: 929145819
-      Move Back_8: 1556468794
-      Move Back_9: 1306346078
+      DashRight_0: 1256503237
+      DashRight_1: 899799675
+      DashRight_2: 953465392
+      DashRight_3: 10592942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

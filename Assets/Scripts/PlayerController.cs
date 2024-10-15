@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private enum PlayerState
     {
         Idle,
-        Run
+        Move,
+        Attack
     }
 
     private PlayerState currentState;
@@ -24,48 +25,47 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
-    private Animator playerAnimator;
+    private Animator myAnimator;
+    private SpriteRenderer mySpriteRenderer;
 
 
     private void Awake()
     {
         playerControls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
-        playerAnimator = SpriteObject.GetComponent<Animator>();
+        myAnimator = SpriteObject.GetComponent<Animator>();
+        mySpriteRenderer = SpriteObject.GetComponent<SpriteRenderer>();
     }
-
 
     private void OnEnable()
     {
         playerControls.Enable();
     }
 
+    private void Start()
+    {
+        playerControls.Combat.Attack.started += _ => Attack();
+    }
 
     private void FixedUpdate()
     {
-        GetInput();
         Move();
-        ChangeMoveAnimation();
-    }
-
-
-    private void GetInput()
-    {
-        movement = playerControls.Movement.Move.ReadValue<Vector2>();
-
-        // 마우스와 플레이어의 스크린 좌표 가져오기
-        //Vector3 mouseScreenPoint = Input.mousePosition;
-        //Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
     }
 
 
     private void Move()
     {
+        if (currentState == PlayerState.Attack) { return; }
+
+        movement = playerControls.Movement.Move.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed * Time.deltaTime;
+
+        myAnimator.SetFloat("InputX", movement.x);
+        myAnimator.SetFloat("InputY", movement.y);
 
         if (movement.x != 0 || movement.y != 0)
         {
-            ChangeState(PlayerState.Run);
+            ChangeState(PlayerState.Move);
         }
         else
         {
@@ -74,10 +74,35 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void ChangeMoveAnimation()
+    private void Attack()
     {
-        playerAnimator.SetFloat("InputX", movement.x);
-        playerAnimator.SetFloat("InputY", movement.y);
+        if (currentState == PlayerState.Attack) { return; }
+        ChangeState(PlayerState.Attack);
+
+        rb.velocity = Vector2.zero;
+
+        // 마우스와 플레이어의 스크린 좌표 가져오기
+        Vector3 mouseScreenPoint = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+
+        // 벡터 정규화
+        Vector3 mouseDirection = mouseScreenPoint - playerScreenPoint;
+        mouseDirection.Normalize();
+
+        // 벡터의 값을 -1 ~ 1 범위로 변환
+       float mouseX = Vector3.Dot(transform.right, mouseDirection);
+       float mouseY = Vector3.Dot(transform.up, mouseDirection);
+
+        myAnimator.SetFloat("MouseX", mouseX);
+        myAnimator.SetFloat("MouseY", mouseY);
+
+        Invoke("ReturnIdle", 0.5f);
+    }
+
+
+    private void ReturnIdle()
+    {
+        ChangeState(PlayerState.Idle);
     }
 
 
@@ -88,7 +113,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        playerAnimator.SetInteger("State", (int)state);
+        myAnimator.SetInteger("State", (int)state);
         currentState = state;
     }
 }

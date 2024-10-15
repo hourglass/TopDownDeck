@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7a32c6e3b55a56439da95f90c3703e8
+guid: e1a255bb42ba7e84bb2dc61b23d4f8f8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash Right_0
+      name: DashLeft_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07372abf916bce44197371e82883fa74
-      internalID: -2126414026
+      spriteID: 553d0ea6cc5f0f64cbb514c57b8f1b10
+      internalID: 570374070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Right_1
+      name: DashLeft_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b9e9d22bde40a4f9397492a99c407a
-      internalID: -100243784
+      spriteID: a972184b79adf9b428594cfbf5727c16
+      internalID: 1131860344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Right_2
+      name: DashLeft_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0838bd42cf222647a79d02c1515c8c2
-      internalID: 670270314
+      spriteID: e2c8f56c72d3da94098a913fd5bcbda2
+      internalID: -268562924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Right_3
+      name: DashLeft_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81d82eaf826ee4147ab9be7dab999f7b
-      internalID: -719835599
+      spriteID: 640d602ac3bb40940a5a660be6514c83
+      internalID: -1255400244
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash Right_0: -2126414026
-      Dash Right_1: -100243784
-      Dash Right_2: 670270314
-      Dash Right_3: -719835599
+      DashLeft_0: 570374070
+      DashLeft_1: 1131860344
+      DashLeft_2: -268562924
+      DashLeft_3: -1255400244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

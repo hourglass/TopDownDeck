@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 446bbf104dd3e214a83f89aa7f1cd25c
+guid: 3ce65121af9485249b045fd56905cae5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move Left_0
+      name: SlashRight_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9001b075895dc1c4cb1e2d0d14a7a774
+      internalID: -1254018320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238235bfe737a194e9a125713741ab81
+      internalID: 249649601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb68741ed6bf6841a929a164262f597
+      internalID: 1082851433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2959a2129ece36d459335463030d4941
+      internalID: -2108732102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c80b9518fe9aaf43b05e5f7b024f8f0
+      internalID: 1449924015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0570fa44478ba554896dab6e93ce4abe
+      internalID: 806702373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_6
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 631d4b30180422c40ac10633150cd37b
-      internalID: -91765210
+      spriteID: 965bbc5d1a9501741b11859c80d33323
+      internalID: 1885039321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_1
+      name: SlashRight_7
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3ec215f02d88404faec5585e6117641
-      internalID: -659175783
+      spriteID: 0eb1324a2a63b344c90f03cc55c51b55
+      internalID: 1021188315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_2
+      name: SlashRight_8
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d0ad60869f89a49ab796d89a329f41
-      internalID: 617450415
+      spriteID: 5269d6e5d7a0c1347a4e4748a1071b57
+      internalID: 1686194901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_3
+      name: SlashRight_9
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ec918f8a5b03f7498500b5e586f1674
-      internalID: -752505588
+      spriteID: 9811bc1729206854f996f7c0416ee0fd
+      internalID: 1908008000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_4
+      name: SlashRight_10
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dabb8a5157a13d64da3e3d846e6f28c7
-      internalID: 200607819
+      spriteID: d129bd8841d7ae74f966fa2fde23795a
+      internalID: 1482901747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_5
+      name: SlashRight_11
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +368,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0052bc6144b231444b385b1c43d22cd3
-      internalID: -595419916
+      spriteID: a29b1c4d5531afc44aea070918b1141b
+      internalID: -340821918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_6
+      name: SlashRight_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3735864197af3a049baa97c49e9fb492
+      internalID: 1305612106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_13
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d748111dbabd165438e1e86a339a9645
+      internalID: 1145733126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ab4fbe3db72cc4c8805ffd81ff49a6
+      internalID: 1375175206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_15
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7e5e67ac2ffdf44c9c9745b4525945a
-      internalID: -1845323333
+      spriteID: 8253270a73441294a831f34c3382ac79
+      internalID: -1648240810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_7
+      name: SlashRight_16
       rect:
         serializedVersion: 2
         x: 64
@@ -284,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ebea3d1f36dc041baca1ea4b0ecc1e
-      internalID: -1558895323
+      spriteID: 1b79dcfedd5a3be46b0185c2003d5050
+      internalID: 1785322398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_8
+      name: SlashRight_17
       rect:
         serializedVersion: 2
         x: 128
@@ -305,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b063a04c508b22b49b239b4f0cd77381
-      internalID: -318660929
+      spriteID: f7f42c1556fc6b143ab0fc1df971274b
+      internalID: -208213498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_9
+      name: SlashRight_18
       rect:
         serializedVersion: 2
         x: 192
@@ -326,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4134d74bbd9a11d468c5cb589a197c5c
-      internalID: 1300263544
+      spriteID: e8e174a64aa3c9b4a818057960a65e31
+      internalID: 1903857766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_10
+      name: SlashRight_19
       rect:
         serializedVersion: 2
         x: 256
@@ -347,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5477b39d92200e4692436a074171d20
-      internalID: 1911706902
+      spriteID: 858768b3768c030479a3599260541d21
+      internalID: -835558478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Left_11
+      name: SlashRight_20
       rect:
         serializedVersion: 2
         x: 320
@@ -368,8 +557,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d4146840c5e8848b1ba5df6e1239b7
-      internalID: -2086666693
+      spriteID: a7599c782383d2c47b80abba6602702a
+      internalID: 1862220205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashRight_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d9705ca207336147ab921005730ab65
+      internalID: -787298822
       vertices: []
       indices: 
       edges: []
@@ -385,18 +595,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Move Left_0: -91765210
-      Move Left_1: -659175783
-      Move Left_10: 1911706902
-      Move Left_11: -2086666693
-      Move Left_2: 617450415
-      Move Left_3: -752505588
-      Move Left_4: 200607819
-      Move Left_5: -595419916
-      Move Left_6: -1845323333
-      Move Left_7: -1558895323
-      Move Left_8: -318660929
-      Move Left_9: 1300263544
+      SlashRight_0: -1254018320
+      SlashRight_1: 249649601
+      SlashRight_10: 1482901747
+      SlashRight_11: -340821918
+      SlashRight_12: 1305612106
+      SlashRight_13: 1145733126
+      SlashRight_14: 1375175206
+      SlashRight_15: -1648240810
+      SlashRight_16: 1785322398
+      SlashRight_17: -208213498
+      SlashRight_18: 1903857766
+      SlashRight_19: -835558478
+      SlashRight_2: 1082851433
+      SlashRight_20: 1862220205
+      SlashRight_21: -787298822
+      SlashRight_3: -2108732102
+      SlashRight_4: 1449924015
+      SlashRight_5: 806702373
+      SlashRight_6: 1885039321
+      SlashRight_7: 1021188315
+      SlashRight_8: 1686194901
+      SlashRight_9: 1908008000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

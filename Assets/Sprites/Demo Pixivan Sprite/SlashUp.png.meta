@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62c7ca43e4281d048a8cc2bb73622f40
+guid: ea34cbafc2a88d14bbe96afd41a98372
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move Right_0
+      name: SlashUp_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9dad025e29c5b840a641fd3e1120a0e
+      internalID: 713615458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c5f7325ba4d8342a44d1c0dfbcd3df
+      internalID: 2117845747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78c4f9d804f93f458fed0ce2ea44446
+      internalID: 479911770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55853b61f263d6a469d6c632d9feeff9
+      internalID: -2077282515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5732fc35d937004ebae054c92728ad6
+      internalID: -683556362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df00ddb6daff23428e613e791e4e252
+      internalID: -378495192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_6
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f94007f1a7589424d97b8a1194d089c6
-      internalID: -1356990367
+      spriteID: 73d2e014fb63cd04183f6db7982f4457
+      internalID: -1411296600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_1
+      name: SlashUp_7
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b6255532b773cd4bb0abc67b612d779
-      internalID: -879523474
+      spriteID: dd4816fc9ca4735489e7479fbad40d72
+      internalID: 1671657635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_2
+      name: SlashUp_8
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc7e5ba24f4340c4488f77c50887fc5d
-      internalID: -1238120381
+      spriteID: 790306e7fbaf98a4497c2f152786a889
+      internalID: -1393321310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_3
+      name: SlashUp_9
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93c62c85eb5b9914a94f53f729be4a11
-      internalID: -2086256557
+      spriteID: c52072a8e90407545a646be6e3ea3dd9
+      internalID: -1059368483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_4
+      name: SlashUp_10
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47c6cdb2a4d67c478d075a362c5a54a
-      internalID: -95641023
+      spriteID: 78eac05f094bb164b81768fb6894038e
+      internalID: -1928109838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_5
+      name: SlashUp_11
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +368,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1813010748eb69c42ad49073558bfc6e
-      internalID: 827206462
+      spriteID: 225ad13481f4e6748ba90186adde9e56
+      internalID: -571041472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_6
+      name: SlashUp_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79051317a5d21574db53339b109b9990
+      internalID: 829624449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_13
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e2a55d72b5dbe4e99809146db50f1f
+      internalID: -1960616550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949dfebf873fb79459937616333451a0
+      internalID: -1875160833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_15
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3b06cad642ec914d9ea86d85c7f99cd
-      internalID: -1839130986
+      spriteID: 5fd91eccd1cbe69469c8142b3f823cb1
+      internalID: 1503510929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_7
+      name: SlashUp_16
       rect:
         serializedVersion: 2
         x: 64
@@ -284,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 541b66cc87eabf548931042988797410
-      internalID: -679450863
+      spriteID: 838d1aedb9adbe241b30ffa6ecf9903f
+      internalID: 42128016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_8
+      name: SlashUp_17
       rect:
         serializedVersion: 2
         x: 128
@@ -305,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4fc4ee75e997f849bf7130c15ec2507
-      internalID: 873700730
+      spriteID: f6a8beba839c1f540aaa7e7952dc793c
+      internalID: -2066057258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_9
+      name: SlashUp_18
       rect:
         serializedVersion: 2
         x: 192
@@ -326,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8090783243250494c82fa89a3a340013
-      internalID: -435699965
+      spriteID: 868adfc4cb0ca4349a225cfa702ca3f6
+      internalID: -660273938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_10
+      name: SlashUp_19
       rect:
         serializedVersion: 2
         x: 256
@@ -347,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83743bf84095a1641a76017a9a49b4b7
-      internalID: 33511424
+      spriteID: 2e9b8ed15a15c5f44a336dba8ec2cdd7
+      internalID: -2063252381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move Right_11
+      name: SlashUp_20
       rect:
         serializedVersion: 2
         x: 320
@@ -368,8 +557,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 272f9c15f495547488dde3ed0f258b1a
-      internalID: -1781232315
+      spriteID: 12e673cba9cb04d4fb872ab4a4b68a4b
+      internalID: -1940620114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlashUp_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2788a8ddb21ea45ab55d54177dcd59
+      internalID: -873999761
       vertices: []
       indices: 
       edges: []
@@ -385,18 +595,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Move Right_0: -1356990367
-      Move Right_1: -879523474
-      Move Right_10: 33511424
-      Move Right_11: -1781232315
-      Move Right_2: -1238120381
-      Move Right_3: -2086256557
-      Move Right_4: -95641023
-      Move Right_5: 827206462
-      Move Right_6: -1839130986
-      Move Right_7: -679450863
-      Move Right_8: 873700730
-      Move Right_9: -435699965
+      SlashUp_0: 713615458
+      SlashUp_1: 2117845747
+      SlashUp_10: -1928109838
+      SlashUp_11: -571041472
+      SlashUp_12: 829624449
+      SlashUp_13: -1960616550
+      SlashUp_14: -1875160833
+      SlashUp_15: 1503510929
+      SlashUp_16: 42128016
+      SlashUp_17: -2066057258
+      SlashUp_18: -660273938
+      SlashUp_19: -2063252381
+      SlashUp_2: 479911770
+      SlashUp_20: -1940620114
+      SlashUp_21: -873999761
+      SlashUp_3: -2077282515
+      SlashUp_4: -683556362
+      SlashUp_5: -378495192
+      SlashUp_6: -1411296600
+      SlashUp_7: 1671657635
+      SlashUp_8: -1393321310
+      SlashUp_9: -1059368483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

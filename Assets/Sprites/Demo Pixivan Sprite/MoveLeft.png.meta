@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b1b2c4e5c7e6c64bad41dfbe5aece65
+guid: a995f18054d7d1e48b477759dac37c0d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash Left_0
+      name: MoveLeft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f9b2a1644c08143aa45df9c790cdd7
+      internalID: -1857949686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55fbd1f197b9244cb4336ef12c1433d
+      internalID: 614650501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba00ef4b4b7a16c42a45114d6e6778fc
+      internalID: -599030593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1415dd04b60a1c47a42e5aa2e22e609
+      internalID: 1903103153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7ef5832b79e7d48bb2c1787f7c20dd
+      internalID: -71150908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebfa802fdef4ab40a04cfcde94ea8b3
+      internalID: 1371684925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_6
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef4c842477ba48e4cb59a050e019b272
-      internalID: 959304803
+      spriteID: 76fa6208a93ba6f4e906f09fec908874
+      internalID: -1040143271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Left_1
+      name: MoveLeft_7
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 828eb3c847d4cc946a677f286fe17cd0
-      internalID: 741544212
+      spriteID: d4e8e6170e5be2b40b7aec08ceabbf28
+      internalID: -7480723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Left_2
+      name: MoveLeft_8
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b77860beab0bc34aa4d3110a6eab96f
-      internalID: 1564964374
+      spriteID: 052547180ba9ce349aba3fb87ec4b7b9
+      internalID: -2034140270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash Left_3
+      name: MoveLeft_9
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +326,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 757b805da60dd9a44a6ead6dcdcb59fd
-      internalID: 1068409289
+      spriteID: 540ab226f49adbd46b71f1c810b7e0d2
+      internalID: 50315073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1680307d8d9274cbcd7c18d50d5105
+      internalID: 2096715424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveLeft_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1ae1ff5927c1643b62e3ec1e4c6b11
+      internalID: 1768866057
       vertices: []
       indices: 
       edges: []
@@ -217,10 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash Left_0: 959304803
-      Dash Left_1: 741544212
-      Dash Left_2: 1564964374
-      Dash Left_3: 1068409289
+      MoveLeft_0: -1857949686
+      MoveLeft_1: 614650501
+      MoveLeft_10: 2096715424
+      MoveLeft_11: 1768866057
+      MoveLeft_2: -599030593
+      MoveLeft_3: 1903103153
+      MoveLeft_4: -71150908
+      MoveLeft_5: 1371684925
+      MoveLeft_6: -1040143271
+      MoveLeft_7: -7480723
+      MoveLeft_8: -2034140270
+      MoveLeft_9: 50315073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
