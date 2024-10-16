@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         Idle,
         Move,
-        Attack
+        Attack,
     }
 
     private PlayerState currentState;
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
+    private int maxComboIndex = 1;
+    private int currentComboIndex;
+
 
     private void Awake()
     {
@@ -35,6 +39,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myAnimator = SpriteObject.GetComponent<Animator>();
         mySpriteRenderer = SpriteObject.GetComponent<SpriteRenderer>();
+
+        currentComboIndex = 0;
     }
 
     private void OnEnable()
@@ -44,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        playerControls.Combat.Attack.started += _ => Attack();
+        playerControls.Combat.Attack.started += _ => AttackStart();
     }
 
     private void FixedUpdate()
@@ -56,7 +62,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (currentState == PlayerState.Attack) { return; }
-
+        
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed * Time.deltaTime;
 
@@ -74,10 +80,21 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void AttackStart()
+    {
+        if (currentState == PlayerState.Attack) 
+        {
+            return;
+        }
+
+        Attack();
+        ChangeState(PlayerState.Attack);
+        Invoke("AttackEnd", 0.5f);
+    }
+
+
     private void Attack()
     {
-        if (currentState == PlayerState.Attack) { return; }
-        
         // 마우스와 플레이어의 스크린 좌표 가져오기
         Vector3 mouseScreenPoint = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
@@ -93,17 +110,25 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetFloat("MouseX", mouseX);
         myAnimator.SetFloat("MouseY", mouseY);
 
+        myAnimator.SetInteger("ComboIndex", currentComboIndex);
+        currentComboIndex++;
+
         rb.velocity = Vector2.zero;
-
-        ChangeState(PlayerState.Attack);
-
-        Invoke("ReturnIdle", 0.5f);
     }
 
 
-    private void ReturnIdle()
+    private void AttackEnd()
     {
-        ChangeState(PlayerState.Idle);
+        if (currentComboIndex > maxComboIndex)
+        {
+            currentComboIndex = 0;
+        }
+
+        switch (currentState)
+        { 
+            case PlayerState.Attack: ChangeState(PlayerState.Idle); break;
+            default: break;
+        }
     }
 
 
