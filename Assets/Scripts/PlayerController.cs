@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private Animator myAnimator;
-    private SpriteRenderer mySpriteRenderer;
 
     private int maxComboIndex = 1;
     private int currentComboIndex;
@@ -38,7 +37,6 @@ public class PlayerController : MonoBehaviour
         playerControls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = SpriteObject.GetComponent<Animator>();
-        mySpriteRenderer = SpriteObject.GetComponent<SpriteRenderer>();
 
         currentComboIndex = 0;
     }
