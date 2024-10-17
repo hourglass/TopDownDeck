@@ -78,20 +78,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void AttackStart()
-    {
-        if (currentState == PlayerState.Attack) 
-        {
-            return;
-        }
-
-        Attack();
-        ChangeState(PlayerState.Attack);
-        Invoke("AttackEnd", 0.5f);
-    }
-
-
-    private void Attack()
+    private void ConvertMousePosToBlend()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
         Vector3 mouseScreenPoint = Input.mousePosition;
@@ -107,7 +94,26 @@ public class PlayerController : MonoBehaviour
 
         myAnimator.SetFloat("MouseX", mouseX);
         myAnimator.SetFloat("MouseY", mouseY);
+    }
 
+
+    private void AttackStart()
+    {
+        if (currentState == PlayerState.Attack) 
+        {
+            return;
+        }
+
+        Attack();
+        ChangeState(PlayerState.Attack);
+        Invoke("AttackEnd", 0.5f);
+    }
+
+
+    private void Attack()
+    {
+        ConvertMousePosToBlend();
+     
         myAnimator.SetInteger("ComboIndex", currentComboIndex);
         currentComboIndex++;
 
