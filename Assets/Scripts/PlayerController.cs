@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
-    [SerializeField] 
+    [SerializeField]
     private float AttackForce;
 
     [SerializeField]
@@ -115,17 +115,27 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Attack();
         ChangeState(PlayerState.Attack);
-        Invoke("AttackEnd", AttackDelay);
+        StartCoroutine(AttackRoutine());
     }
 
+
+    private IEnumerator AttackRoutine()
+    {
+        WaitForSeconds delay = new WaitForSeconds(AttackDelay);
+
+        Attack();
+
+        yield return delay;
+
+        AttackEnd();
+    }
 
 
     private void Attack()
     {
         ConvertMousePosToBlend();
-        
+
         rb.velocity = Vector2.zero;
         rb.drag = AttackDrag;
         rb.AddForce(mouseDirection * AttackForce, ForceMode2D.Impulse);
@@ -144,7 +154,7 @@ public class PlayerController : MonoBehaviour
 
         switch (currentState)
         {
-            case PlayerState.Attack: 
+            case PlayerState.Attack:
                 ChangeState(PlayerState.Idle);
                 rb.drag = 0f;
                 break;

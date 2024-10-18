@@ -268,7 +268,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack Blend Tree
-  m_Speed: 2
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7854219473426835189}
@@ -283,10 +283,10 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -5230694753085357962}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: InputX
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: InputX
 --- !u!1101 &-651193586444393825
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -433,7 +433,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Combo Blend Tree
-  m_Speed: 2
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -651193586444393825}
