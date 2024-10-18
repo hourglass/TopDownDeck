@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd93fefbe29865443bbacaafaf771b36
+guid: 3903edfcbc30fe74cbf4d3e647988b21
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttackCards_0
+      name: Card_Sound_0
       rect:
         serializedVersion: 2
         x: 16
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a555ada4b817d448975c2fa00783117
-      internalID: 105606201
+      spriteID: 22d1f1fb5bb6092419c663f6993b56d7
+      internalID: 1193232691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_1
+      name: Card_Sound_1
       rect:
         serializedVersion: 2
         x: 112
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a1bc41a21196a34e92353bddc3f0429
-      internalID: -514939447
+      spriteID: 8d68cd356f02bd249801867041a81a34
+      internalID: -1221405529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_2
+      name: Card_Sound_2
       rect:
         serializedVersion: 2
         x: 208
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a88aaab143ae954995aa2629a3cf5a7
-      internalID: -1629894078
+      spriteID: 3108420a3d59fb74d80e57a476e3bcf8
+      internalID: -142925598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_3
+      name: Card_Sound_3
       rect:
         serializedVersion: 2
         x: 304
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98c0967425a28e94ea2c775eeb016a1b
-      internalID: 578418415
+      spriteID: fde139d31ac2e76489c765d35d9c3eda
+      internalID: -1738311681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_4
+      name: Card_Sound_4
       rect:
         serializedVersion: 2
         x: 400
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d127eec73cf3f42944c7ec6d14c664
-      internalID: 891936136
+      spriteID: 1dcb9487bd5ccb749b4a57b75dc3f74c
+      internalID: 1688192798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_5
+      name: Card_Sound_5
       rect:
         serializedVersion: 2
         x: 496
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b07eab99056fdf540a7cc9e1eb1311e9
-      internalID: 1554342761
+      spriteID: 3980ba7a0cb602342bced18185f8f1d4
+      internalID: -1044920195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_6
+      name: Card_Sound_6
       rect:
         serializedVersion: 2
         x: 592
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdcbb16963a3d274c8ec1366ea6eab8a
-      internalID: -1203526421
+      spriteID: ffb0ab6cd1bc5e3459b013fb217242dc
+      internalID: 1067698101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_7
+      name: Card_Sound_7
       rect:
         serializedVersion: 2
         x: 688
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5517fd4ceb89152409d38a52a8a3aa84
-      internalID: -406462435
+      spriteID: 999862c6ef5aba841bc1dd609fcfb3b1
+      internalID: 1797481487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackCards_8
+      name: Card_Sound_8
       rect:
         serializedVersion: 2
         x: 784
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a894eee7073f5499f44072111bae02
-      internalID: -1878797985
+      spriteID: 4fddc66f3e8b04c4fba4f70a552375c6
+      internalID: -1830899263
       vertices: []
       indices: 
       edges: []
@@ -322,15 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AttackCards_0: 105606201
-      AttackCards_1: -514939447
-      AttackCards_2: -1629894078
-      AttackCards_3: 578418415
-      AttackCards_4: 891936136
-      AttackCards_5: 1554342761
-      AttackCards_6: -1203526421
-      AttackCards_7: -406462435
-      AttackCards_8: -1878797985
+      Card_Sound_0: 1193232691
+      Card_Sound_1: -1221405529
+      Card_Sound_2: -142925598
+      Card_Sound_3: -1738311681
+      Card_Sound_4: 1688192798
+      Card_Sound_5: -1044920195
+      Card_Sound_6: 1067698101
+      Card_Sound_7: 1797481487
+      Card_Sound_8: -1830899263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
