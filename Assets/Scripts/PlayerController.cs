@@ -12,12 +12,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    [SerializeField] 
+    private float AttackForce;
+
+    [SerializeField]
+    private float AttackDrag;
+
+    [SerializeField]
+    private float AttackDelay;
+
 
     private enum PlayerState
     {
         Idle,
         Move,
-        Attack,
+        Dash,
+        Attack
     }
 
     private PlayerState currentState;
@@ -25,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerControls;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Vector3 mouseDirection;
 
     private Animator myAnimator;
 
@@ -60,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (currentState == PlayerState.Attack) { return; }
-        
+
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed * Time.deltaTime;
 
@@ -85,7 +96,7 @@ public class PlayerController : MonoBehaviour
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
         // 벡터 정규화
-        Vector3 mouseDirection = mouseScreenPoint - playerScreenPoint;
+        mouseDirection = mouseScreenPoint - playerScreenPoint;
         mouseDirection.Normalize();
 
         // 벡터의 값을 -1 ~ 1 범위로 변환
@@ -99,25 +110,28 @@ public class PlayerController : MonoBehaviour
 
     private void AttackStart()
     {
-        if (currentState == PlayerState.Attack) 
+        if (currentState == PlayerState.Attack)
         {
             return;
         }
 
         Attack();
         ChangeState(PlayerState.Attack);
-        Invoke("AttackEnd", 0.5f);
+        Invoke("AttackEnd", AttackDelay);
     }
+
 
 
     private void Attack()
     {
         ConvertMousePosToBlend();
-     
+        
+        rb.velocity = Vector2.zero;
+        rb.drag = AttackDrag;
+        rb.AddForce(mouseDirection * AttackForce, ForceMode2D.Impulse);
+
         myAnimator.SetInteger("ComboIndex", currentComboIndex);
         currentComboIndex++;
-
-        rb.velocity = Vector2.zero;
     }
 
 
@@ -129,8 +143,11 @@ public class PlayerController : MonoBehaviour
         }
 
         switch (currentState)
-        { 
-            case PlayerState.Attack: ChangeState(PlayerState.Idle); break;
+        {
+            case PlayerState.Attack: 
+                ChangeState(PlayerState.Idle);
+                rb.drag = 0f;
+                break;
             default: break;
         }
     }
