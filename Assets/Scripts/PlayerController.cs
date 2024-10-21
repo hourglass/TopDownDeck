@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -13,13 +14,22 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField]
-    private float AttackForce;
+    private float dashForce;
 
     [SerializeField]
-    private float AttackDrag;
+    private float dashDrag;
 
     [SerializeField]
-    private float AttackDelay;
+    private float dashDelay;
+
+    [SerializeField]
+    private float attackForce;
+
+    [SerializeField]
+    private float attackDrag;
+
+    [SerializeField]
+    private float attackDelay;
 
 
     private enum PlayerState
@@ -59,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        playerControls.Movement.Dash.started += _ => DashStart();
         playerControls.Combat.Attack.started += _ => AttackStart();
     }
 
@@ -70,7 +81,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (currentState == PlayerState.Attack) { return; }
+        if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
+        {
+            return;
+        }
 
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed * Time.deltaTime;
@@ -108,42 +122,62 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void DashStart()
+    {
+        if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
+        {
+            return;
+        }
+
+        ChangeState(PlayerState.Dash);
+        ConvertMousePosToBlend();
+        StartCoroutine(DashRoutine());
+    }
+
+    private IEnumerator DashRoutine()
+    {
+        rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(dashDelay);
+
+        DashEnd();
+    }
+
+    private void DashEnd()
+    {
+        ChangeState(PlayerState.Idle);
+    }
+
+
+
     private void AttackStart()
     {
-        if (currentState == PlayerState.Attack)
+        if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
         {
             return;
         }
 
         ChangeState(PlayerState.Attack);
+        ConvertMousePosToBlend();
         StartCoroutine(AttackRoutine());
     }
 
-
     private IEnumerator AttackRoutine()
     {
-        WaitForSeconds delay = new WaitForSeconds(AttackDelay);
-
         Attack();
 
-        yield return delay;
+        yield return new WaitForSeconds(attackDelay);
 
         AttackEnd();
     }
 
-
     private void Attack()
     {
-        ConvertMousePosToBlend();
-
-        rb.velocity = Vector2.zero;
-        rb.drag = AttackDrag;
-        rb.AddForce(mouseDirection * AttackForce, ForceMode2D.Impulse);
+        rb.AddForce(mouseDirection * attackForce, ForceMode2D.Impulse);
 
         myAnimator.SetInteger("ComboIndex", currentComboIndex);
         currentComboIndex++;
     }
-
 
     private void AttackEnd()
     {
@@ -152,14 +186,7 @@ public class PlayerController : MonoBehaviour
             currentComboIndex = 0;
         }
 
-        switch (currentState)
-        {
-            case PlayerState.Attack:
-                ChangeState(PlayerState.Idle);
-                rb.drag = 0f;
-                break;
-            default: break;
-        }
+        ChangeState(PlayerState.Idle);
     }
 
 
@@ -168,6 +195,38 @@ public class PlayerController : MonoBehaviour
         if (currentState == state)
         {
             return;
+        }
+
+        // 상태를 벗어났을 때
+        switch (currentState)
+        {
+            case PlayerState.Idle:
+                break;
+            case PlayerState.Move:
+                rb.velocity = Vector2.zero;
+                break;
+            case PlayerState.Dash:
+                rb.velocity = Vector2.zero;
+                rb.drag = 0f;
+                break;
+            case PlayerState.Attack:
+                rb.drag = 0f;
+                break;
+        }
+
+        // 상태에 진입했을 때
+        switch (state)
+        {
+            case PlayerState.Idle:
+                break;
+            case PlayerState.Move:
+                break;
+            case PlayerState.Dash:
+                rb.drag = dashDrag;
+                break;
+            case PlayerState.Attack:
+                rb.drag = attackDrag;
+                break;
         }
 
         myAnimator.SetInteger("State", (int)state);

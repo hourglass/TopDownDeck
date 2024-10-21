@@ -1103,9 +1103,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteObject: {fileID: 2073259551}
   moveSpeed: 150
-  AttackForce: 5
-  AttackDrag: 30
-  AttackDelay: 0.5
+  dashForce: 12.5
+  dashDrag: 5
+  dashDelay: 0.25
+  attackForce: 5
+  attackDrag: 30
+  attackDelay: 0.5
 --- !u!50 &1372254969
 Rigidbody2D:
   serializedVersion: 4
