@@ -163,21 +163,21 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator DashCoroutine()
     {
-        rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+        Dash();
 
         yield return new WaitForSeconds(dashDelay);
 
         DashEnd();
     }
 
+    private void Dash()
+    {
+        rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+    }
+
     private void DashEnd()
     {
         ChangeState(PlayerState.Idle);
-
-        if (currentState == PlayerState.Dash)
-        {
-
-        }
     }
 
 
@@ -239,33 +239,15 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // 상태를 벗어났을 때
-        switch (currentState)
-        {
-            case PlayerState.Idle:
-                break;
-            case PlayerState.Move:
-                rb.velocity = Vector2.zero;
-                break;
-            case PlayerState.Dash:
-                rb.velocity = Vector2.zero;
-                rb.drag = 0f;
-                dashEnabled = true;
-                attackEnabled = true;
-                break;
-            case PlayerState.Attack:
-                rb.drag = 0f;
-                dashEnabled = true;
-                attackEnabled = true;
-                break;
-        }
-
-        // 상태에 진입했을 때
         switch (state)
         {
             case PlayerState.Idle:
+                rb.velocity = Vector2.zero;
+                dashEnabled = true;
+                attackEnabled = true;
                 break;
             case PlayerState.Move:
+                rb.drag = 0f;
                 break;
             case PlayerState.Dash:
                 rb.drag = dashDrag;
