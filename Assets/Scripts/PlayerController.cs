@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
     private int maxComboIndex;
     private int currentComboIndex;
 
+    private float defaultAttackDelay;
+
 
     private void Awake()
     {
@@ -70,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
         maxComboIndex = 1;
         currentComboIndex = 0;
+
+        defaultAttackDelay = attackDelay;
     }
 
     private void OnEnable()
@@ -128,6 +132,7 @@ public class PlayerController : MonoBehaviour
         float mouseX = Vector3.Dot(transform.right, mouseDirection);
         float mouseY = Vector3.Dot(transform.up, mouseDirection);
 
+        // 값을 애니메이터에 적용
         myAnimator.SetFloat("MouseX", mouseX);
         myAnimator.SetFloat("MouseY", mouseY);
 
@@ -203,6 +208,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(mouseDirection * attackForce, ForceMode2D.Impulse);
 
+        myAnimator.SetFloat("AttackSpeed", defaultAttackDelay + (1f - attackDelay));
         myAnimator.SetInteger("ComboIndex", currentComboIndex);
 
         currentComboIndex++;
