@@ -1109,6 +1109,7 @@ MonoBehaviour:
   attackForce: 5
   attackDrag: 30
   attackDelay: 0.5
+  attackCancleDelay: 0.15
 --- !u!50 &1372254969
 Rigidbody2D:
   serializedVersion: 4

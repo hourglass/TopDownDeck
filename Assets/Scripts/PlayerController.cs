@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float attackDelay;
 
+    [SerializeField]
+    private float attackCancleDelay;
+
 
     private enum PlayerState
     {
@@ -49,7 +52,10 @@ public class PlayerController : MonoBehaviour
 
     private Animator myAnimator;
 
-    private int maxComboIndex = 1;
+    private bool dashEnabled;
+    private bool attackEnabled;
+
+    private int maxComboIndex;
     private int currentComboIndex;
 
 
@@ -59,6 +65,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myAnimator = SpriteObject.GetComponent<Animator>();
 
+        dashEnabled = true;
+        attackEnabled = true;
+
+        maxComboIndex = 1;
         currentComboIndex = 0;
     }
 
@@ -79,6 +89,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    //===============Move===============//
     private void Move()
     {
         if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
@@ -89,11 +100,10 @@ public class PlayerController : MonoBehaviour
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
         rb.velocity = movement * moveSpeed * Time.deltaTime;
 
-        myAnimator.SetFloat("InputX", movement.x);
-        myAnimator.SetFloat("InputY", movement.y);
-
         if (movement.x != 0 || movement.y != 0)
         {
+            myAnimator.SetFloat("InputX", movement.x);
+            myAnimator.SetFloat("InputY", movement.y);
             ChangeState(PlayerState.Move);
         }
         else
@@ -103,6 +113,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    //===============Mouse===============//
     private void ConvertMousePosToBlend()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
@@ -119,22 +130,31 @@ public class PlayerController : MonoBehaviour
 
         myAnimator.SetFloat("MouseX", mouseX);
         myAnimator.SetFloat("MouseY", mouseY);
+
+        myAnimator.SetFloat("InputX", mouseX);
+        myAnimator.SetFloat("InputY", mouseY);
     }
 
 
+    //===============Dash===============//
     private void DashStart()
     {
-        if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
+        if (!dashEnabled)
         {
             return;
         }
 
+        if (currentState == PlayerState.Attack)
+        {
+            StopCoroutine(attackCoroutine);
+        }
+
         ChangeState(PlayerState.Dash);
         ConvertMousePosToBlend();
-        StartCoroutine(DashRoutine());
+        StartCoroutine(DashCoroutine());
     }
 
-    private IEnumerator DashRoutine()
+    private IEnumerator DashCoroutine()
     {
         rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
 
@@ -145,28 +165,36 @@ public class PlayerController : MonoBehaviour
 
     private void DashEnd()
     {
-        ChangeState(PlayerState.Idle);
+        if (currentState == PlayerState.Dash)
+        {
+            ChangeState(PlayerState.Idle);
+        }
     }
 
 
-
+    //===============Attack===============//
     private void AttackStart()
     {
-        if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
+        if (!attackEnabled)
         {
             return;
         }
 
         ChangeState(PlayerState.Attack);
         ConvertMousePosToBlend();
-        StartCoroutine(AttackRoutine());
+        attackCoroutine = StartCoroutine(AttackCoroutine());
     }
 
-    private IEnumerator AttackRoutine()
+    Coroutine attackCoroutine;
+    private IEnumerator AttackCoroutine()
     {
         Attack();
 
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(attackCancleDelay);
+
+        dashEnabled = true;
+
+        yield return new WaitForSeconds(attackDelay - attackCancleDelay);
 
         AttackEnd();
     }
@@ -176,20 +204,24 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(mouseDirection * attackForce, ForceMode2D.Impulse);
 
         myAnimator.SetInteger("ComboIndex", currentComboIndex);
-        currentComboIndex++;
-    }
 
-    private void AttackEnd()
-    {
+        currentComboIndex++;
         if (currentComboIndex > maxComboIndex)
         {
             currentComboIndex = 0;
         }
+    }
 
-        ChangeState(PlayerState.Idle);
+    private void AttackEnd()
+    {
+        if (currentState == PlayerState.Attack)
+        {
+            ChangeState(PlayerState.Idle);
+        }
     }
 
 
+    //===============State-===============//
     private void ChangeState(PlayerState state)
     {
         if (currentState == state)
@@ -208,9 +240,13 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Dash:
                 rb.velocity = Vector2.zero;
                 rb.drag = 0f;
+                dashEnabled = true;
+                attackEnabled = true;
                 break;
             case PlayerState.Attack:
                 rb.drag = 0f;
+                dashEnabled = true;
+                attackEnabled = true;
                 break;
         }
 
@@ -223,9 +259,13 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Dash:
                 rb.drag = dashDrag;
+                dashEnabled = false;
+                attackEnabled = false;
                 break;
             case PlayerState.Attack:
                 rb.drag = attackDrag;
+                dashEnabled = false;
+                attackEnabled = false;
                 break;
         }
 
