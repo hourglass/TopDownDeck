@@ -102,17 +102,19 @@ public class PlayerController : MonoBehaviour
         }
 
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
-        rb.velocity = movement * moveSpeed * Time.deltaTime;
 
-        if (movement.x != 0 || movement.y != 0)
+        if (movement.x == 0 && movement.y == 0)
         {
-            myAnimator.SetFloat("InputX", movement.x);
-            myAnimator.SetFloat("InputY", movement.y);
-            ChangeState(PlayerState.Move);
+            ChangeState(PlayerState.Idle);
+            return;
         }
         else
         {
-            ChangeState(PlayerState.Idle);
+            ChangeState(PlayerState.Move);
+            rb.velocity = movement * moveSpeed * Time.deltaTime;
+
+            myAnimator.SetFloat("InputX", movement.x);
+            myAnimator.SetFloat("InputY", movement.y);
         }
     }
 
@@ -170,9 +172,11 @@ public class PlayerController : MonoBehaviour
 
     private void DashEnd()
     {
+        ChangeState(PlayerState.Idle);
+
         if (currentState == PlayerState.Dash)
         {
-            ChangeState(PlayerState.Idle);
+
         }
     }
 

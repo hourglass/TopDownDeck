@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteObject: {fileID: 2073259551}
   moveSpeed: 150
-  dashForce: 12.5
+  dashForce: 10
   dashDrag: 5
   dashDelay: 0.3
   attackForce: 5
