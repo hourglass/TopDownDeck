@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 mouseDirection;
 
     private Animator myAnimator;
+    private SpriteRenderer mySpriteRenderer;
 
     private bool dashEnabled;
     private bool attackEnabled;
