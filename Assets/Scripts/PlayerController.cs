@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         playerControls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = SpriteObject.GetComponent<Animator>();
+        mySpriteRenderer = SpriteObject.gameObject.GetComponent<SpriteRenderer>();
 
         dashEnabled = true;
         attackEnabled = true;
@@ -102,8 +103,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        // 키보드 입력 값 받아오기
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
+        // 이동 및 정지
         if (movement.x == 0 && movement.y == 0)
         {
             ChangeState(PlayerState.Idle);
@@ -113,6 +116,9 @@ public class PlayerController : MonoBehaviour
         {
             ChangeState(PlayerState.Move);
             rb.velocity = movement * moveSpeed * Time.deltaTime;
+
+            // 스프라이트 플립
+            mySpriteRenderer.flipX = (movement.x < 0f) ? true : false;
 
             myAnimator.SetFloat("InputX", movement.x);
             myAnimator.SetFloat("InputY", movement.y);
@@ -134,6 +140,9 @@ public class PlayerController : MonoBehaviour
         // 벡터의 값을 -1 ~ 1 범위로 변환
         float mouseX = Vector3.Dot(transform.right, mouseDirection);
         float mouseY = Vector3.Dot(transform.up, mouseDirection);
+
+        // 스프라이트 플립
+        mySpriteRenderer.flipX = (mouseX < 0f) ? true : false;
 
         // 값을 애니메이터에 적용
         myAnimator.SetFloat("MouseX", mouseX);
@@ -232,7 +241,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //===============State-===============//
+    //===============State===============//
     private void ChangeState(PlayerState state)
     {
         if (currentState == state)
