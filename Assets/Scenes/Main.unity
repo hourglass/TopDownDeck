@@ -1109,7 +1109,7 @@ MonoBehaviour:
   dashDelay: 0.3
   attackForce: 5
   attackDrag: 30
-  attackDelay: 0.5
+  attackDelay: 0.4
   attackCancleDelay: 0.2
 --- !u!50 &1372254969
 Rigidbody2D:
@@ -1380,7 +1380,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: adc1438c1dfd977478ae489ab77dcb65, type: 3}
+  m_Sprite: {fileID: 1612077763, guid: f08ec953698b02d4ebe9dd68fd2d759e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

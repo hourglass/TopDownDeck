@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         // 키보드 입력 값 받아오기
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
-        // 이동 및 정지
+        // 정지 및 이동
         if (movement.x == 0 && movement.y == 0)
         {
             ChangeState(PlayerState.Idle);
@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
             // 스프라이트 플립
             mySpriteRenderer.flipX = (movement.x < 0f) ? true : false;
 
+            // 값을 애니메이터에 적용
             myAnimator.SetFloat("InputX", movement.x);
             myAnimator.SetFloat("InputY", movement.y);
         }
@@ -141,8 +142,8 @@ public class PlayerController : MonoBehaviour
         float mouseX = Vector3.Dot(transform.right, mouseDirection);
         float mouseY = Vector3.Dot(transform.up, mouseDirection);
 
-        // 스프라이트 플립
-        mySpriteRenderer.flipX = (mouseX < 0f) ? true : false;
+        // 스프라이트 플립  
+        mySpriteRenderer.flipX = (mouseX < -0.5f) ? true : false;
 
         // 값을 애니메이터에 적용
         myAnimator.SetFloat("MouseX", mouseX);
