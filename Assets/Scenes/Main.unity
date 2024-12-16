@@ -2928,12 +2928,11 @@ MonoBehaviour:
   dashForce: 12
   dashDrag: 5
   dashTime: 0.3
-  dashDelay: 0.05
+  dashDelay: 0.03
   attackForce: 5
   attackDrag: 30
-  attackTime: 0
-  attackDelay: 0.4
-  attackCancleDelay: 0.2
+  attackTime: 0.4
+  attackDelay: 0.02
 --- !u!50 &1372254969
 Rigidbody2D:
   serializedVersion: 4

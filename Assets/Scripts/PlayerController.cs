@@ -39,9 +39,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float attackDelay;
 
-    [SerializeField]
-    private float attackCancleDelay;
-
 
     private enum PlayerState
     {
@@ -61,13 +58,13 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
+    Coroutine dashCorutine;
     private bool dashEnabled;
-    private bool attackEnabled;
 
+    Coroutine attackCorutine;
+    private bool attackEnabled;
     private int maxComboIndex;
     private int currentComboIndex;
-
-    private float defaultAttackDelay;
 
 
     private void Awake()
@@ -79,7 +76,6 @@ public class PlayerController : MonoBehaviour
 
         maxComboIndex = 1;
         currentComboIndex = 0;
-        defaultAttackDelay = attackDelay;
 
         dashEnabled = true;
         attackEnabled = true;
@@ -102,7 +98,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //===============Move===============//
+    //===============================[ Move ]==============================//
     private void Move()
     {
         if (!(currentState == PlayerState.Idle || currentState == PlayerState.Move))
@@ -133,8 +129,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    //===============Mouse===============//
+    //==============================[ Mouse ]==============================//
     private void ConvertMousePosToBlend()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
@@ -160,8 +155,7 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetFloat("InputY", mouseY);
     }
 
-
-    //===============Dash===============//
+    //==============================[ Dash ]==============================//
     private void Dash()
     {
         if (!dashEnabled)
@@ -174,16 +168,11 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(attackCorutine);
         }
 
-        dashEnabled = false;
-        attackEnabled = false;
-        rb.drag = dashDrag;
-
         ChangeState(PlayerState.Dash);
         ConvertMousePosToBlend();
         dashCorutine = StartCoroutine(DashCoroutine());
     }
 
-    Coroutine dashCorutine;
     private IEnumerator DashCoroutine()
     {
         rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
@@ -199,8 +188,7 @@ public class PlayerController : MonoBehaviour
         ChangeState(PlayerState.Idle);
     }
 
-
-    //===============Attack===============//
+    //==============================[ Attack ]==============================//
     private void AttackStart()
     {
         if (!attackEnabled)
@@ -213,26 +201,21 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(dashCorutine);
         }
 
-        dashEnabled = false;
-        attackEnabled = false;
-        rb.drag = attackDrag;
-
         ChangeState(PlayerState.Attack);
         ConvertMousePosToBlend();
         attackCorutine = StartCoroutine(AttackCoroutine());
     }
 
-    Coroutine attackCorutine;
     private IEnumerator AttackCoroutine()
     {
         Attack();
 
-        yield return new WaitForSeconds(attackCancleDelay);
+        yield return new WaitForSeconds(attackTime);
 
         rb.velocity = Vector3.zero;
         dashEnabled = true;
 
-        yield return new WaitForSeconds(attackDelay - attackCancleDelay);
+        yield return new WaitForSeconds(attackDelay);
 
         ChangeState(PlayerState.Idle);
     }
@@ -241,7 +224,6 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(mouseDirection * attackForce, ForceMode2D.Impulse);
 
-        myAnimator.SetFloat("AttackSpeed", defaultAttackDelay + (1f - attackDelay));
         myAnimator.SetInteger("ComboIndex", currentComboIndex);
 
         currentComboIndex++;
@@ -251,8 +233,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    //===============State===============//
+    //==============================[ State ]==============================//
     private void ChangeState(PlayerState state)
     {
         if (currentState == state)
@@ -260,12 +241,26 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (state == PlayerState.Idle)
+        switch (state)
         {
-            rb.velocity = Vector3.zero;
-            rb.drag = 0f;
-            dashEnabled = true;
-            attackEnabled = true;
+            case PlayerState.Idle:
+                rb.velocity = Vector3.zero;
+                rb.drag = 0f;
+                dashEnabled = true;
+                attackEnabled = true;
+                break;
+            case PlayerState.Move:
+                break;
+            case PlayerState.Dash:
+                rb.drag = dashDrag;
+                dashEnabled = false;
+                attackEnabled = false;
+                break;
+            case PlayerState.Attack:
+                rb.drag = attackDrag;
+                dashEnabled = false;
+                attackEnabled = false;
+                break;
         }
 
         myAnimator.SetInteger("State", (int)state);
