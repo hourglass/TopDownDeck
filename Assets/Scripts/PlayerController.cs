@@ -210,10 +210,14 @@ public class PlayerController : MonoBehaviour
     {
         Attack();
 
-        yield return new WaitForSeconds(attackTime);
+        float attackCancle = attackTime * 0.5f;
+        yield return new WaitForSeconds(attackCancle);
+
+        dashEnabled = true;
+
+        yield return new WaitForSeconds(attackTime - attackCancle);
 
         rb.velocity = Vector3.zero;
-        dashEnabled = true;
 
         yield return new WaitForSeconds(attackDelay);
 
