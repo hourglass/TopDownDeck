@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+
     [SerializeField]
     private float dashForce;
 
@@ -20,13 +21,20 @@ public class PlayerController : MonoBehaviour
     private float dashDrag;
 
     [SerializeField]
+    private float dashTime;
+
+    [SerializeField]
     private float dashDelay;
+
 
     [SerializeField]
     private float attackForce;
 
     [SerializeField]
     private float attackDrag;
+
+    [SerializeField]
+    private float attackTime;
 
     [SerializeField]
     private float attackDelay;
@@ -69,13 +77,12 @@ public class PlayerController : MonoBehaviour
         myAnimator = SpriteObject.GetComponent<Animator>();
         mySpriteRenderer = SpriteObject.gameObject.GetComponent<SpriteRenderer>();
 
-        dashEnabled = true;
-        attackEnabled = true;
-
         maxComboIndex = 1;
         currentComboIndex = 0;
-
         defaultAttackDelay = attackDelay;
+
+        dashEnabled = true;
+        attackEnabled = true;
     }
 
     private void OnEnable()
@@ -85,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        playerControls.Movement.Dash.started += _ => DashStart();
+        playerControls.Movement.Dash.started += _ => Dash();
         playerControls.Combat.Attack.started += _ => AttackStart();
     }
 
@@ -143,7 +150,7 @@ public class PlayerController : MonoBehaviour
         float mouseY = Vector3.Dot(transform.up, mouseDirection);
 
         // 스프라이트 플립  
-        mySpriteRenderer.flipX = (mouseX < -0.5f) ? true : false;
+        mySpriteRenderer.flipX = (mouseX < 0) ? true : false;
 
         // 값을 애니메이터에 적용
         myAnimator.SetFloat("MouseX", mouseX);
@@ -155,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
 
     //===============Dash===============//
-    private void DashStart()
+    private void Dash()
     {
         if (!dashEnabled)
         {
@@ -164,30 +171,31 @@ public class PlayerController : MonoBehaviour
 
         if (currentState == PlayerState.Attack)
         {
-            StopCoroutine(attackCoroutine);
+            StopCoroutine(attackCorutine);
         }
+
+        dashEnabled = false;
+        attackEnabled = false;
+        rb.drag = dashDrag;
 
         ChangeState(PlayerState.Dash);
         ConvertMousePosToBlend();
-        StartCoroutine(DashCoroutine());
+        dashCorutine = StartCoroutine(DashCoroutine());
     }
 
+    Coroutine dashCorutine;
     private IEnumerator DashCoroutine()
     {
-        Dash();
+        rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(dashTime);
+
+        rb.velocity = Vector3.zero;
+        attackEnabled = true;
+        myAnimator.SetInteger("State", (int)PlayerState.Idle);
 
         yield return new WaitForSeconds(dashDelay);
 
-        DashEnd();
-    }
-
-    private void Dash()
-    {
-        rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
-    }
-
-    private void DashEnd()
-    {
         ChangeState(PlayerState.Idle);
     }
 
@@ -200,23 +208,33 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (currentState == PlayerState.Dash)
+        {
+            StopCoroutine(dashCorutine);
+        }
+
+        dashEnabled = false;
+        attackEnabled = false;
+        rb.drag = attackDrag;
+
         ChangeState(PlayerState.Attack);
         ConvertMousePosToBlend();
-        attackCoroutine = StartCoroutine(AttackCoroutine());
+        attackCorutine = StartCoroutine(AttackCoroutine());
     }
 
-    Coroutine attackCoroutine;
+    Coroutine attackCorutine;
     private IEnumerator AttackCoroutine()
     {
         Attack();
 
         yield return new WaitForSeconds(attackCancleDelay);
 
+        rb.velocity = Vector3.zero;
         dashEnabled = true;
 
         yield return new WaitForSeconds(attackDelay - attackCancleDelay);
 
-        AttackEnd();
+        ChangeState(PlayerState.Idle);
     }
 
     private void Attack()
@@ -233,14 +251,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void AttackEnd()
-    {
-        if (currentState == PlayerState.Attack)
-        {
-            ChangeState(PlayerState.Idle);
-        }
-    }
-
 
     //===============State===============//
     private void ChangeState(PlayerState state)
@@ -250,26 +260,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        switch (state)
+        if (state == PlayerState.Idle)
         {
-            case PlayerState.Idle:
-                rb.velocity = Vector2.zero;
-                dashEnabled = true;
-                attackEnabled = true;
-                break;
-            case PlayerState.Move:
-                rb.drag = 0f;
-                break;
-            case PlayerState.Dash:
-                rb.drag = dashDrag;
-                dashEnabled = false;
-                attackEnabled = false;
-                break;
-            case PlayerState.Attack:
-                rb.drag = attackDrag;
-                dashEnabled = false;
-                attackEnabled = false;
-                break;
+            rb.velocity = Vector3.zero;
+            rb.drag = 0f;
+            dashEnabled = true;
+            attackEnabled = true;
         }
 
         myAnimator.SetInteger("State", (int)state);
