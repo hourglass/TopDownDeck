@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject SpriteObject;
+    private GameObject spriteObject;
 
     [SerializeField]
     private float moveSpeed;
@@ -71,8 +71,8 @@ public class PlayerController : MonoBehaviour
     {
         playerControls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
-        myAnimator = SpriteObject.GetComponent<Animator>();
-        mySpriteRenderer = SpriteObject.gameObject.GetComponent<SpriteRenderer>();
+        myAnimator = spriteObject.GetComponent<Animator>();
+        mySpriteRenderer = spriteObject.gameObject.GetComponent<SpriteRenderer>();
 
         maxComboIndex = 1;
         currentComboIndex = 0;
