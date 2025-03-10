@@ -301,12 +301,12 @@ GameObject:
   m_Component:
   - component: {fileID: 139951313}
   m_Layer: 0
-  m_Name: Hand
+  m_Name: Hand (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &139951313
 Transform:
   m_ObjectHideFlags: 0
@@ -2845,7 +2845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 680333559}
   m_Layer: 0
-  m_Name: Hand (1)
+  m_Name: Hand (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4359,12 +4359,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1389735617}
   m_Layer: 0
-  m_Name: Hand (2)
+  m_Name: Hand (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1389735617
 Transform:
   m_ObjectHideFlags: 0
