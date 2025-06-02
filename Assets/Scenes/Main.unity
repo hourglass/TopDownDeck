@@ -4312,7 +4312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63650c40ea27e034c9ea9e339c995b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteObject: {fileID: 2073259551}
+  PlayerSprite: {fileID: 2073259551}
   moveSpeed: 150
   dashForce: 12
   dashDrag: 5
