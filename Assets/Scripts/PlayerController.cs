@@ -10,12 +10,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInput();
-        rb = GetComponent<Rigidbody2D>();
+        playerRb = GetComponent<Rigidbody2D>();
         playerAnim = PlayerSprite.GetComponent<Animator>();
         playerSpriteRenderer = PlayerSprite.gameObject.GetComponent<SpriteRenderer>();
-
-        maxComboIndex = 1;
-        currentComboIndex = 0;
 
         dashEnabled = true;
         attackEnabled = true;
@@ -30,6 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         playerControls.Movement.Dash.started += _ => Dash();
         playerControls.Combat.Attack.started += _ => AttackStart();
+
+        SetCurrentWeapon();
     }
 
     private void FixedUpdate()
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             ChangeState(PlayerState.Move);
-            rb.velocity = movement * moveSpeed * Time.deltaTime;
+            playerRb.velocity = movement * moveSpeed * Time.deltaTime;
 
             // 스프라이트 플립
             playerSpriteRenderer.flipX = (movement.x < 0f) ? true : false;
@@ -83,7 +82,7 @@ public class PlayerController : MonoBehaviour
         return mouseDirection;
     }
 
-    private void SetAnimByMouseDirection(Vector3 mouseDirection)
+    private void FlipByMouseDirection(Vector3 mouseDirection)
     {
         // 벡터의 값을 -1 ~ 1 범위로 변환
         float mouseX = Vector3.Dot(transform.right, mouseDirection);
@@ -114,7 +113,7 @@ public class PlayerController : MonoBehaviour
         }
        
         Vector3 mouseDirection = GetMouseDirection();
-        SetAnimByMouseDirection(mouseDirection);
+        FlipByMouseDirection(mouseDirection);
 
         ChangeState(PlayerState.Dash);
 
@@ -124,11 +123,12 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         Vector3 mouseDirection = GetMouseDirection();
-        rb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+        playerRb.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+        playerRb.drag = dashDrag;
 
         yield return new WaitForSeconds(dashTime);
 
-        rb.velocity = Vector3.zero;
+        playerRb.velocity = Vector3.zero;
         attackEnabled = true;
         playerAnim.SetInteger("State", (int)PlayerState.Idle);
 
@@ -151,18 +151,17 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 mouseDirection = GetMouseDirection();
-        SetAnimByMouseDirection(mouseDirection);
+        FlipByMouseDirection(mouseDirection);
+        currentWeapon.SetMouseDirection(mouseDirection);
 
         ChangeState(PlayerState.Attack);
-
-        playerAnim.SetInteger("ComboIndex", currentComboIndex);
 
         attackCorutine = StartCoroutine(AttackCoroutine());
     }
 
     private IEnumerator AttackCoroutine()
     {
-        Attack();
+        currentWeapon.Attack();
 
         float attackCancle = attackTime * 0.5f;
         yield return new WaitForSeconds(attackCancle);
@@ -171,23 +170,11 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(attackTime - attackCancle);
 
-        rb.velocity = Vector3.zero;
+        playerRb.velocity = Vector3.zero;
 
         yield return new WaitForSeconds(attackDelay);
 
         ChangeState(PlayerState.Idle);
-    }
-
-    private void Attack()
-    {
-        Vector3 mouseDirection = GetMouseDirection();
-        rb.AddForce(mouseDirection * attackForce, ForceMode2D.Impulse);
-
-        currentComboIndex++;
-        if (currentComboIndex > maxComboIndex)
-        {
-            currentComboIndex = 0;
-        }
     }
 
     //==============================[ State ]==============================//
@@ -201,20 +188,18 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case PlayerState.Idle:
-                rb.velocity = Vector3.zero;
-                rb.drag = 0f;
+                playerRb.velocity = Vector3.zero;
+                playerRb.drag = 0f;
                 dashEnabled = true;
                 attackEnabled = true;
                 break;
             case PlayerState.Move:
                 break;
             case PlayerState.Dash:
-                rb.drag = dashDrag;
                 dashEnabled = false;
                 attackEnabled = false;
                 break;
             case PlayerState.Attack:
-                rb.drag = attackDrag;
                 dashEnabled = false;
                 attackEnabled = false;
                 break;
@@ -224,9 +209,17 @@ public class PlayerController : MonoBehaviour
         currentState = state;
     }
 
+    private void SetCurrentWeapon()
+    { 
+        currentWeapon = weapon;
+        currentWeapon.SetPlayerInfo(playerAnim, playerRb);
+    }
 
     [SerializeField]
     private GameObject PlayerSprite;
+
+    [SerializeField]
+    private Weapon weapon;
 
     [SerializeField]
     private float moveSpeed;
@@ -242,12 +235,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float dashDelay;
-
-    [SerializeField]
-    private float attackForce;
-
-    [SerializeField]
-    private float attackDrag;
 
     [SerializeField]
     private float attackTime;
@@ -267,20 +254,18 @@ public class PlayerController : MonoBehaviour
     private PlayerState currentState;
 
     private PlayerInput playerControls;
-    private Rigidbody2D rb;
+    private Rigidbody2D playerRb;
     private Vector2 movement;
 
     private Animator playerAnim;
     private SpriteRenderer playerSpriteRenderer;
 
-    Coroutine dashCorutine;
     private bool dashEnabled;
-
-    Coroutine attackCorutine;
     private bool attackEnabled;
-    private int maxComboIndex;
-    private int currentComboIndex;
 
-    Weapon currentWeapon;
+    private Coroutine dashCorutine;
+    private Coroutine attackCorutine;
+
+    private Weapon currentWeapon;
 }
 

@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    void Attack()
-    { 
-    
+    public abstract void Attack();
+
+    public abstract void ChargingAttack();
+
+    public void SetPlayerInfo(Animator newAnim, Rigidbody2D newRb)
+    {
+        playerAnim = newAnim;
+        playerRb = newRb;
     }
 
-    void ChargingAttack()
-    { 
-    
+    public void SetMouseDirection(Vector3 newDirection)
+    {
+        mouseDirection = newDirection;
     }
+
+    protected Animator playerAnim;
+    protected Rigidbody2D playerRb;
+
+    protected Vector3 mouseDirection;
 }
