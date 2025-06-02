@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerControls.Movement.Dash.started += _ => Dash();
-        playerControls.Combat.Attack.started += _ => AttackStart();
+        playerControls.Combat.Attack.started += _ => Attack();
 
         SetCurrentWeapon();
     }
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             StopCoroutine(attackCorutine);
         }
-       
+
         Vector3 mouseDirection = GetMouseDirection();
         FlipByMouseDirection(mouseDirection);
 
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //==============================[ Attack ]==============================//
-    private void AttackStart()
+    private void Attack()
     {
         if (!attackEnabled)
         {
@@ -188,10 +188,10 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case PlayerState.Idle:
-                playerRb.velocity = Vector3.zero;
-                playerRb.drag = 0f;
                 dashEnabled = true;
                 attackEnabled = true;
+                playerRb.velocity = Vector3.zero;
+                playerRb.drag = 0f;
                 break;
             case PlayerState.Move:
                 break;
@@ -210,16 +210,17 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SetCurrentWeapon()
-    { 
+    {
         currentWeapon = weapon;
         currentWeapon.SetPlayerInfo(playerAnim, playerRb);
     }
 
-    [SerializeField]
-    private GameObject PlayerSprite;
 
     [SerializeField]
     private Weapon weapon;
+
+    [SerializeField]
+    private GameObject PlayerSprite;
 
     [SerializeField]
     private float moveSpeed;

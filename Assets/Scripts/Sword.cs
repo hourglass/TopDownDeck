@@ -12,21 +12,30 @@ public class Sword : Weapon
 
     public override void Attack()
     {
-        playerAnim.SetInteger("ComboIndex", currentComboIndex);
+        AttackLaunch();
+        SetAnimByCombo();
+    }
 
+    public override void ChargingAttack()
+    { 
+        
+    }
+
+    private void AttackLaunch()
+    {
         playerRb.AddForce(mouseDirection * attackForce, ForceMode2D.Impulse);
         playerRb.drag = attackDrag;
+    }
+
+    private void SetAnimByCombo()
+    {
+        playerAnim.SetInteger("ComboIndex", currentComboIndex);
 
         currentComboIndex++;
         if (currentComboIndex > maxComboIndex)
         {
             currentComboIndex = 0;
         }
-    }
-
-    public override void ChargingAttack()
-    { 
-        
     }
 
     [SerializeField]
