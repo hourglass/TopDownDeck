@@ -212,7 +212,8 @@ public class PlayerController : MonoBehaviour
     private void SetCurrentWeapon()
     {
         currentWeapon = weapon;
-        currentWeapon.SetPlayerInfo(playerAnim, playerRb);
+        currentWeapon.SetPlayerAnim(playerAnim);
+        currentWeapon.SetPlayerRb(playerRb);
     }
 
 

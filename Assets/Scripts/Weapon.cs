@@ -8,9 +8,13 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract void ChargingAttack();
 
-    public void SetPlayerInfo(Animator newAnim, Rigidbody2D newRb)
+    public void SetPlayerAnim(Animator newAnim)
     {
         playerAnim = newAnim;
+    }
+
+    public void SetPlayerRb(Rigidbody2D newRb)
+    {
         playerRb = newRb;
     }
 
