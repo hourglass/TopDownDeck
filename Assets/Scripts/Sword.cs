@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : Weapon
@@ -29,7 +27,7 @@ public class Sword : Weapon
 
     private void SetAnimByCombo()
     {
-        playerAnim.SetInteger("ComboIndex", currentComboIndex);
+        Anim.SetInteger("ComboIndex", currentComboIndex);
 
         currentComboIndex++;
         if (currentComboIndex > maxComboIndex)
@@ -37,6 +35,7 @@ public class Sword : Weapon
             currentComboIndex = 0;
         }
     }
+
 
     [SerializeField]
     private float attackForce;
