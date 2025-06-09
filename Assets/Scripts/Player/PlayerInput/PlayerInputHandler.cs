@@ -9,16 +9,21 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
-        MovementInput = context.ReadValue<Vector2>();
+        Vector2 RawMovementInput = context.ReadValue<Vector2>();
+
+        float NormInputX = (RawMovementInput.x * Vector2.right).normalized.x;
+        float NormInputY = (RawMovementInput.y * Vector2.up).normalized.y;
+
+        MovementInput = new Vector2(NormInputX, NormInputY).normalized;
     }
 
-    public void OnDashInput(InputAction.CallbackContext context) 
-    { 
-        
+    public void OnDashInput(InputAction.CallbackContext context)
+    {
+
     }
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
-       
+
     }
-} 
+}
