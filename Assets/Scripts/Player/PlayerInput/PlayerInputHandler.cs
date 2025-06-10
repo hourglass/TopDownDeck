@@ -7,6 +7,8 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MovementInput { get; private set; }
 
+    public bool DashInput { get; private set; }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         Vector2 RawMovementInput = context.ReadValue<Vector2>();
@@ -19,8 +21,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnDashInput(InputAction.CallbackContext context)
     {
-
+        if (context.started)
+        { 
+            DashInput = true;
+        }
     }
+
+    public void UseDashInput() => DashInput = false;
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {

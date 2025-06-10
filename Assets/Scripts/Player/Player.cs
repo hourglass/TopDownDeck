@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -9,11 +12,11 @@ public class Player : MonoBehaviour
 
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
+    public PlayerDashState DashState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
 
     public Animator Anim { get; private set; }
-    public SpriteRenderer Renderer { get; private set; }
     public Rigidbody2D RB { get; private set; }
 
     public Vector2 CurrentVelocity { get; private set; }
@@ -23,18 +26,13 @@ public class Player : MonoBehaviour
 
     private Vector2 workspace;
 
+    private SpriteRenderer Renderer;
+
+    private Camera cam;
+
 
     [SerializeField]
     private Weapon weapon;
-
-    [SerializeField]
-    private float dashForce;
-
-    [SerializeField]
-    private float dashDrag;
-
-    [SerializeField]
-    private float dashTime;
 
     [SerializeField]
     private float dashDelay;
@@ -44,6 +42,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float attackDelay;
+
 
     private enum State
     {
@@ -72,6 +71,7 @@ public class Player : MonoBehaviour
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
+        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
 
         playerControls = new PlayerInput();
     }
@@ -84,9 +84,11 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Anim = GetComponent<Animator>();
-        Renderer = GetComponent<SpriteRenderer>();
         RB = GetComponent<Rigidbody2D>();
+        Renderer = GetComponent<SpriteRenderer>();
         InputHandler = GetComponent<PlayerInputHandler>();
+
+        cam = Camera.main;
 
         StateMachine.Initailize(IdleState);
 
@@ -109,8 +111,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
-
-        //Move();
     }
 
     public void SetVelocity(Vector2 velocity)
@@ -120,36 +120,35 @@ public class Player : MonoBehaviour
         CurrentVelocity = workspace;
     }
 
-    private Vector3 GetMouseDirection()
+    public void CheckIfShouldFlip(float xInput)
+    {
+        Renderer.flipX = (xInput < 0f) ? true : false;
+    }
+
+    public Vector3 GetMouseDirection()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
         Vector3 mouseScreenPoint = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 playerScreenPoint = cam.WorldToScreenPoint(transform.position);
 
         // 벡터 정규화
-        Vector3 mouseDirection = mouseScreenPoint - playerScreenPoint;
-        mouseDirection.Normalize();
+        Vector2 mouseDirection = (mouseScreenPoint - playerScreenPoint).normalized;
 
         return mouseDirection;
     }
 
-    private void FlipByMouseDirection()
+    public void SetAnimValueByMouseDirection(Vector2 mouseDirection)
     {
-        Vector3 mouseDirection = GetMouseDirection();
-
-        // 벡터의 값을 -1 ~ 1 범위로 변환
-        float mouseX = Vector3.Dot(transform.right, mouseDirection);
-        float mouseY = Vector3.Dot(transform.up, mouseDirection);
-
-        // 스프라이트 플립  
-        Renderer.flipX = (mouseX < 0) ? true : false;
+        // 벡터의 내적을 통해 입력 값을 -1 ~ 1 범위로 변환(cos t)
+        float mouseX = Vector2.Dot(Vector2.right, mouseDirection);
+        float mouseY = Vector2.Dot(Vector2.up, mouseDirection);
 
         // 값을 애니메이터에 적용
-        Anim.SetFloat("MouseX", mouseX);
-        Anim.SetFloat("MouseY", mouseY);
+        Anim.SetFloat("mouseX", mouseX);
+        Anim.SetFloat("mouseY", mouseY);
 
-        Anim.SetFloat("InputX", mouseX);
-        Anim.SetFloat("InputY", mouseY);
+        Anim.SetFloat("inputX", mouseX);
+        Anim.SetFloat("inputY", mouseY);
     }
 
     private void Dash()
@@ -165,7 +164,8 @@ public class Player : MonoBehaviour
         }
 
         Vector3 mouseDirection = GetMouseDirection();
-        FlipByMouseDirection();
+        CheckIfShouldFlip(mouseDirection.x);
+        SetAnimValueByMouseDirection(mouseDirection);
 
         ChangeState(State.Dash);
 
@@ -175,14 +175,14 @@ public class Player : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         Vector3 mouseDirection = GetMouseDirection();
-        RB.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
-        RB.drag = dashDrag;
+        RB.AddForce(mouseDirection * playerData.dashForce, ForceMode2D.Impulse);
+        RB.drag = playerData.dashDrag;
 
-        yield return new WaitForSeconds(dashTime);
+        yield return new WaitForSeconds(playerData.dashTime);
 
         RB.velocity = Vector3.zero;
         attackEnabled = true;
-        Anim.SetInteger("State", (int)State.Idle);
+        Anim.SetInteger("state", (int)State.Idle);
 
         yield return new WaitForSeconds(dashDelay);
 
@@ -196,13 +196,9 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (currentState == State.Dash)
-        {
-            StopCoroutine(dashCorutine);
-        }
-
         Vector3 mouseDirection = GetMouseDirection();
-        FlipByMouseDirection();
+        CheckIfShouldFlip(mouseDirection.x);
+        SetAnimValueByMouseDirection(mouseDirection);
         currentWeapon.SetMouseDirection(mouseDirection);
 
         ChangeState(State.Attack);
@@ -216,8 +212,6 @@ public class Player : MonoBehaviour
 
         float attackCancle = attackTime * 0.5f;
         yield return new WaitForSeconds(attackCancle);
-
-        dashEnabled = true;
 
         yield return new WaitForSeconds(attackTime - attackCancle);
 
@@ -255,7 +249,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        Anim.SetInteger("State", (int)state);
+        Anim.SetInteger("state", (int)state);
         currentState = state;
     }
 

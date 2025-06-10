@@ -27,7 +27,7 @@ public class Sword : Weapon
 
     private void SetAnimByCombo()
     {
-        Anim.SetInteger("ComboIndex", currentComboIndex);
+        Anim.SetInteger("comboIndex", currentComboIndex);
 
         currentComboIndex++;
         if (currentComboIndex > maxComboIndex)

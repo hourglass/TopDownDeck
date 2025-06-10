@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : PlayerState
+public class PlayerMoveState : PlayerNormalState
 {
     public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -41,11 +41,11 @@ public class PlayerMoveState : PlayerState
         player.SetVelocity(input * playerData.movementVelocity);
 
         // 스프라이트 플립
-        player.Renderer.flipX = (input.x < 0f) ? true : false;
+        player.CheckIfShouldFlip(input.x);
 
         // 값을 애니메이터에 적용
-        player.Anim.SetFloat("InputX", input.x);
-        player.Anim.SetFloat("InputY", input.y);
+        player.Anim.SetFloat("inputX", input.x);
+        player.Anim.SetFloat("inputY", input.y);
     }
 
     public override void PhysicsUpdate()

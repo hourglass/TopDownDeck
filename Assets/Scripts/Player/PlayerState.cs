@@ -8,11 +8,9 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected PlayerData playerData;
 
-    protected Vector2 input;
+    protected float startTime;
 
     private string animBoolName;
-
-    private float startTime;
 
     public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
     {
