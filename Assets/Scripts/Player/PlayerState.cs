@@ -20,11 +20,17 @@ public class PlayerState
         this.animBoolName = animBoolName;
     }
 
+    public virtual void DoChecks()
+    {
+
+    }
+
     public virtual void Enter()
     {
         //DoChecks();
-        player.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
+        player.Anim.SetBool(animBoolName, true);
+        player.SetVelocity(Vector2.zero);
         Debug.Log(animBoolName);
     }
 
@@ -39,11 +45,6 @@ public class PlayerState
     }
 
     public virtual void PhysicsUpdate()
-    {
-        //DoChecks();
-    }
-
-    public virtual void DoChecks()
     {
 
     }

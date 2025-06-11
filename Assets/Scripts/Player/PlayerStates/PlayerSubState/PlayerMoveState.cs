@@ -27,8 +27,10 @@ public class PlayerMoveState : PlayerNormalState
     {
         base.LogicUpdate();
 
-        // 키보드 입력 값 받아오기
-        input = player.InputHandler.MovementInput;
+        if (player.StateMachine.CurrentState != player.MoveState)
+        {
+            return;
+        }
 
         // 정지 상태 전환
         if (input.x == 0 && input.y == 0)
@@ -40,12 +42,12 @@ public class PlayerMoveState : PlayerNormalState
         // 플레이어 이동
         player.SetVelocity(input * playerData.movementVelocity);
 
-        // 스프라이트 플립
-        player.CheckIfShouldFlip(input.x);
-
         // 값을 애니메이터에 적용
         player.Anim.SetFloat("inputX", input.x);
         player.Anim.SetFloat("inputY", input.y);
+
+        // 스프라이트 플립
+        player.CheckIfShouldFlip(input.x);
     }
 
     public override void PhysicsUpdate()

@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash_FrSide_0
+      name: Dash_SE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16376d65efae2104a8d286b66daa519a
-      internalID: 1473778191
+      spriteID: 4004d99b44ec88f48b588e4a310846f3
+      internalID: 854547579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_FrSide_1
+      name: Dash_SE_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bc8ae53da769dc48842c882da2bed42
-      internalID: -358359751
+      spriteID: e8be6208a4d99a449a5f2cabe4a4e325
+      internalID: 1993676911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_FrSide_2
+      name: Dash_SE_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f241aef44f71e04d84cab1167eedcc9
-      internalID: -1597133570
+      spriteID: ee38facfac281fe4da929224f8a30cdc
+      internalID: 548062338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_FrSide_3
+      name: Dash_SE_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6935398e35e402143b50198b3e965936
-      internalID: -2057652367
+      spriteID: 00d93a845ec039b42828c3f8d8320d5b
+      internalID: -1950254774
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash_FrSide_0: 1473778191
-      Dash_FrSide_1: -358359751
-      Dash_FrSide_2: -1597133570
-      Dash_FrSide_3: -2057652367
+      Dash_SE_0: 854547579
+      Dash_SE_1: 1993676911
+      Dash_SE_2: 548062338
+      Dash_SE_3: -1950254774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

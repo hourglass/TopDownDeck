@@ -4363,7 +4363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 71d1930321beeee49a057d1eba15c771, type: 2}
   weapon: {fileID: 787057977}
-  dashDelay: 0.03
   attackTime: 0.4
   attackDelay: 0.02
 --- !u!50 &1372254969
@@ -4455,7 +4454,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1612077763, guid: f08ec953698b02d4ebe9dd68fd2d759e, type: 3}
+  m_Sprite: {fileID: -1599555957, guid: f08ec953698b02d4ebe9dd68fd2d759e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4478,6 +4477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb7a0588d63ea6448043ab9fb0218fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHoldTime: 0
 --- !u!114 &1372254973
 MonoBehaviour:
   m_ObjectHideFlags: 0

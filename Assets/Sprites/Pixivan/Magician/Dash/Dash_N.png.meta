@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash_Back_0
+      name: Dash_N_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 829acaa32bdc0c246a7f641abbe0b078
-      internalID: -1549243521
+      spriteID: d0f43b21e5376b44495ece5d555dfdbf
+      internalID: -1487105978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_Back_1
+      name: Dash_N_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62aa9ac1ff314ff47940a2e6fda85b1c
-      internalID: -723815267
+      spriteID: 8f0865e8648fd5d45a9ff633f23d67d3
+      internalID: 59016744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_Back_2
+      name: Dash_N_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 218a7863d90d99342962daac80b3e153
-      internalID: -224034611
+      spriteID: d706ad51902fd7e4d9e51ce5d2a914c3
+      internalID: 1030526212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_Back_3
+      name: Dash_N_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3ef276832c9a8d45a4fac055b9088a4
-      internalID: 948481344
+      spriteID: 61ca7de174720634eb209109afc70e3e
+      internalID: 711923205
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash_Back_0: -1549243521
-      Dash_Back_1: -723815267
-      Dash_Back_2: -224034611
-      Dash_Back_3: 948481344
+      Dash_N_0: -1487105978
+      Dash_N_1: 59016744
+      Dash_N_2: 1030526212
+      Dash_N_3: 711923205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

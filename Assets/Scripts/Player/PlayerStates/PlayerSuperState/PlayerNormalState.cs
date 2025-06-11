@@ -6,7 +6,7 @@ public class PlayerNormalState : PlayerState
 {
     protected Vector2 input;
 
-    private bool DashInput;
+    private bool dashInput;
 
     public PlayerNormalState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -20,6 +20,8 @@ public class PlayerNormalState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+
     }
 
     public override void Exit()
@@ -31,16 +33,16 @@ public class PlayerNormalState : PlayerState
     {
         base.LogicUpdate();
 
-        // 입력 값 받아오기
         input = player.InputHandler.MovementInput;
 
-        DashInput = player.InputHandler.DashInput;
+        dashInput = player.InputHandler.DashInput;
 
         // 대쉬 상태 전환
-        if (DashInput && player.DashState.CanDash())
+        if (dashInput && player.DashState.CanDash())
         {
             player.InputHandler.UseDashInput();
-            //stateMachine.ChangeState(player.DashState);
+            stateMachine.ChangeState(player.DashState);
+            return;
         }
     }
 

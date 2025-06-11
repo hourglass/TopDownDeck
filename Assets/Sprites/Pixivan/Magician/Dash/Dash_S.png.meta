@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dash_Front_0
+      name: Dash_S_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c83aa30823c6e874183e675b8ce6cec2
-      internalID: 400286627
+      spriteID: 72622de8c742f6e4a9016e44fd4051e1
+      internalID: 1139470354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_Front_1
+      name: Dash_S_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33c14ff35ae4db84498a8589fde76540
-      internalID: -667533095
+      spriteID: 654149ca34d53254b8027261d9ae7a48
+      internalID: 1480698455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_Front_2
+      name: Dash_S_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2634da32bf7f75e4ca07a141265db5ba
-      internalID: 110777423
+      spriteID: b481b94269488c3448189358dc8e4400
+      internalID: 2051960384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dash_Front_3
+      name: Dash_S_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bef5ef7bd152c040b1eda463ff88350
-      internalID: -1571855912
+      spriteID: 0d7afafcac2d61f4e84cd3507b6e2ecc
+      internalID: 771156955
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dash_Front_0: 400286627
-      Dash_Front_1: -667533095
-      Dash_Front_2: 110777423
-      Dash_Front_3: -1571855912
+      Dash_S_0: 1139470354
+      Dash_S_1: 1480698455
+      Dash_S_2: 2051960384
+      Dash_S_3: 771156955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementVelocity: 4
-  amountOfDashs: 2
-  dashVelocity: 10
+  amountOfDashs: 5
   dashForce: 12
   dashDrag: 5
   dashTime: 0.3
-  singleDashCooldown: 0.03
-  dashCoolDown: 0.3
+  dashEndTime: 0.05
+  dashCoolDown: 0.5

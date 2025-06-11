@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit_Front_0
+      name: Hit_S_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3999c3ca504b746a4da4981ade8fbe
-      internalID: 1654285708
+      spriteID: e9c3876d7ccb49344a6ae3b22d392fd5
+      internalID: 446132359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_Front_1
+      name: Hit_S_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56baa9cab87faf04986d776eb2f6cd77
-      internalID: -1969879292
+      spriteID: a58d2b1cdf7c6d14f85714a271393652
+      internalID: -832354133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_Front_2
+      name: Hit_S_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6527c4f30db993640b5465fa0bbde42a
-      internalID: 1118579582
+      spriteID: 9cca32420b1bb184fbd04e1b82e0722b
+      internalID: -1464061618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_Front_3
+      name: Hit_S_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 347ef4a16b486ad4782eeeebdeae2c60
-      internalID: -165251137
+      spriteID: 8fe0fd101ea0ac941ba2c99a87ba1769
+      internalID: -1498610820
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hit_Front_0: 1654285708
-      Hit_Front_1: -1969879292
-      Hit_Front_2: 1118579582
-      Hit_Front_3: -165251137
+      Hit_S_0: 446132359
+      Hit_S_1: -832354133
+      Hit_S_2: -1464061618
+      Hit_S_3: -1498610820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

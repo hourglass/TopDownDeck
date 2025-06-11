@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit_Back_0
+      name: Hit_N_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfa2b8f52ed9dd14088bf16f677f854c
-      internalID: -1335591149
+      spriteID: 8cab4a2f8ab0d8f45a4b71a76190c387
+      internalID: 47093623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_Back_1
+      name: Hit_N_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fd737825a3dd03458178f6b396fb435
-      internalID: 845214845
+      spriteID: 1618b90f9f38afc4dbef06cfc6f66b65
+      internalID: -906463223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_Back_2
+      name: Hit_N_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8baf05979cf3a534facf7109a7ff77b0
-      internalID: 709710768
+      spriteID: 05148b3db6320e649ab6d78834cc72fc
+      internalID: -2011382435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_Back_3
+      name: Hit_N_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a2abffc93f6dc45b63cc1e6132fdee
-      internalID: -1255028691
+      spriteID: 43de5a893628f4b44a8f766312324542
+      internalID: 876852114
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hit_Back_0: -1335591149
-      Hit_Back_1: 845214845
-      Hit_Back_2: 709710768
-      Hit_Back_3: -1255028691
+      Hit_N_0: 47093623
+      Hit_N_1: -906463223
+      Hit_N_2: -2011382435
+      Hit_N_3: 876852114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,6 +9,16 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool DashInput { get; private set; }
 
+    [SerializeField]
+    private float inputHoldTime = 0.2f;
+
+    private float dashStartTime;
+
+    private void Update()
+    {
+        CheckDashInputHoldTime();
+    }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         Vector2 RawMovementInput = context.ReadValue<Vector2>();
@@ -22,12 +32,21 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnDashInput(InputAction.CallbackContext context)
     {
         if (context.started)
-        { 
+        {
             DashInput = true;
+            dashStartTime = Time.time;
         }
     }
 
     public void UseDashInput() => DashInput = false;
+
+    private void CheckDashInputHoldTime()
+    {
+        if (Time.time >= dashStartTime + inputHoldTime)
+        {
+            DashInput = false;
+        }
+    }
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {

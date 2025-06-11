@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerDashState : PlayerAbilityState
 {
@@ -25,8 +24,8 @@ public class PlayerDashState : PlayerAbilityState
 
         mouseDirection = player.GetMouseDirection();
 
-        player.CheckIfShouldFlip(mouseDirection.x);
         player.SetAnimValueByMouseDirection(mouseDirection);
+        player.CheckIfShouldFlip(mouseDirection.x);
 
         player.RB.drag = playerData.dashDrag;
         player.RB.AddForce(mouseDirection * playerData.dashForce, ForceMode2D.Impulse);
@@ -37,22 +36,20 @@ public class PlayerDashState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
+
+        lastDashTime = Time.time;
+        player.RB.drag = 0f;
     }
 
     public override void LogicUpdate()
     {
-        if (Time.time > startTime + playerData.dashTime)
-        {
-            isAbilityDone = true;
-            lastDashTime = Time.time;
-            stateMachine.ChangeState(player.IdleState);
-        }
-        else 
-        {
-            //player.SetVelocity(mouseDirection * playerData.dashVelocity);
-        }
-
         base.LogicUpdate();
+
+        if (Time.time >= startTime + playerData.dashTime)
+        {
+            stateMachine.ChangeState(player.IdleState);
+            return;
+        }
     }
 
     public override void PhysicsUpdate()
@@ -64,16 +61,11 @@ public class PlayerDashState : PlayerAbilityState
     {
         if (amountOfDashsLeft > 0)
         {
-            if (Time.time > lastDashTime + playerData.singleDashCooldown)
-            {
-                return true;
-            }
-
-            return false;
+            return true;
         }
         else
         {
-            if (Time.time > lastDashTime + playerData.dashCoolDown)
+            if (Time.time >= lastDashTime + playerData.dashCoolDown)
             {
                 amountOfDashsLeft = playerData.amountOfDashs;
                 return true;
@@ -82,8 +74,4 @@ public class PlayerDashState : PlayerAbilityState
             return false;
         }
     }
-
-    public void ResetAmountOfDashsLeft() => amountOfDashsLeft = playerData.amountOfDashs;
-
-    public void DecreasetAmountOfDashsLeft() => amountOfDashsLeft--;
 }

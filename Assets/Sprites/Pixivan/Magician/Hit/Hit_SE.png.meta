@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit_FrSide_0
+      name: Hit_SE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b922224664c5714f889560ff6db8963
-      internalID: -1193301638
+      spriteID: b8dc6b614ddfaa34685134faeb797f38
+      internalID: 1665242107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_FrSide_1
+      name: Hit_SE_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a387eaeac240b24390280b75e252705
-      internalID: -470044126
+      spriteID: 1d2985e581e68c34eb84c8b677115a8a
+      internalID: 1161795204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_FrSide_2
+      name: Hit_SE_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c08fbd8066468a4b9be0cc5a6a7f03e
-      internalID: -1346680451
+      spriteID: 8dc8232f753ad224fa370176dea3aad5
+      internalID: -1805894223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit_FrSide_3
+      name: Hit_SE_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64fd0a290aafe504fbc513e74e1fdd34
-      internalID: 1951866033
+      spriteID: 51d44658a8402d74dbb10999c80d5efe
+      internalID: -1000432522
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hit_FrSide_0: -1193301638
-      Hit_FrSide_1: -470044126
-      Hit_FrSide_2: -1346680451
-      Hit_FrSide_3: 1951866033
+      Hit_SE_0: 1665242107
+      Hit_SE_1: 1161795204
+      Hit_SE_2: -1805894223
+      Hit_SE_3: -1000432522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

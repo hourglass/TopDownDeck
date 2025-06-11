@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 
@@ -33,9 +32,6 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Weapon weapon;
-
-    [SerializeField]
-    private float dashDelay;
 
     [SerializeField]
     private float attackTime;
@@ -74,6 +70,10 @@ public class Player : MonoBehaviour
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
 
         playerControls = new PlayerInput();
+
+        currentState = State.Idle;
+        dashEnabled = true;
+        attackEnabled = true;
     }
 
     private void OnEnable()
@@ -93,11 +93,8 @@ public class Player : MonoBehaviour
         StateMachine.Initailize(IdleState);
 
         //TODO: Refactoring
-        playerControls.Gameplay.Dash.started += _ => Dash();
+        //playerControls.Gameplay.Dash.started += _ => Dash();
         playerControls.Gameplay.Attack.started += _ => Attack();
-
-        dashEnabled = true;
-        attackEnabled = true;
 
         SetCurrentWeapon();
     }
@@ -106,6 +103,8 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
+
+        //Move();
     }
 
     private void FixedUpdate()
@@ -128,7 +127,7 @@ public class Player : MonoBehaviour
     public Vector3 GetMouseDirection()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
-        Vector3 mouseScreenPoint = Input.mousePosition;
+        Vector3 mouseScreenPoint = UnityEngine.Input.mousePosition;
         Vector3 playerScreenPoint = cam.WorldToScreenPoint(transform.position);
 
         // 벡터 정규화
@@ -149,6 +148,39 @@ public class Player : MonoBehaviour
 
         Anim.SetFloat("inputX", mouseX);
         Anim.SetFloat("inputY", mouseY);
+    }
+
+
+
+    private void Move()
+    {
+        if (!(currentState == State.Idle || currentState == State.Move))
+        {
+            return;
+        }
+
+        Vector2 input = playerControls.Gameplay.Move.ReadValue<Vector2>();
+
+        // 정지 상태 전환
+        if (input.x == 0 && input.y == 0)
+        {
+            ChangeState(State.Idle);
+            return;
+        }
+        else
+        {
+            ChangeState(State.Move);
+
+            // 플레이어 이동
+            SetVelocity(input * playerData.movementVelocity);
+
+            // 값을 애니메이터에 적용
+            Anim.SetFloat("inputX", input.x);
+            Anim.SetFloat("inputY", input.y);
+
+            // 스프라이트 플립
+            CheckIfShouldFlip(input.x);
+        }
     }
 
     private void Dash()
@@ -184,7 +216,7 @@ public class Player : MonoBehaviour
         attackEnabled = true;
         Anim.SetInteger("state", (int)State.Idle);
 
-        yield return new WaitForSeconds(dashDelay);
+        yield return new WaitForSeconds(0.03f);
 
         ChangeState(State.Idle);
     }
