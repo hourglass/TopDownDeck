@@ -140,15 +140,15 @@ public class Player : MonoBehaviour
         {
             ChangeState(State.Move);
 
-            // 플레이어 이동
-            SetVelocity(input * playerData.movementVelocity);
-
             // 값을 애니메이터에 적용
             Anim.SetFloat("inputX", input.x);
             Anim.SetFloat("inputY", input.y);
 
             // 스프라이트 플립
             CheckIfShouldFlip(input.x);
+
+            // 플레이어 이동
+            SetVelocity(input * playerData.movementVelocity);
         }
     }
 
@@ -164,11 +164,11 @@ public class Player : MonoBehaviour
             StopCoroutine(attackCorutine);
         }
 
+        ChangeState(State.Dash);
+
         Vector3 mouseDirection = GetMouseDirection();
         CheckIfShouldFlip(mouseDirection.x);
         SetAnimValueByMouseDirection(mouseDirection);
-
-        ChangeState(State.Dash);
 
         dashCorutine = StartCoroutine(DashCoroutine());
     }
@@ -197,12 +197,12 @@ public class Player : MonoBehaviour
             return;
         }
 
+        ChangeState(State.Attack);
+
         Vector3 mouseDirection = GetMouseDirection();
         CheckIfShouldFlip(mouseDirection.x);
         SetAnimValueByMouseDirection(mouseDirection);
         currentWeapon.SetMouseDirection(mouseDirection);
-
-        ChangeState(State.Attack);
 
         attackCorutine = StartCoroutine(AttackCoroutine());
     }
@@ -250,6 +250,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
+        Debug.Log("state:" + state);
         Anim.SetInteger("state", (int)state);
         currentState = state;
     }

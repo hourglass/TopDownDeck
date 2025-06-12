@@ -60,6 +60,11 @@ public class PlayerRollState : PlayerAbilityState
 
     public bool CanRoll()
     {
+        if (!isAbillityDone)
+        {
+            return false;
+        }
+
         if (amountOfRollsLeft > 0)
         {
             return true;

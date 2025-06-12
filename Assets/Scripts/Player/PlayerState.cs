@@ -20,23 +20,22 @@ public class PlayerState
         this.animBoolName = animBoolName;
     }
 
-    public virtual void DoChecks()
-    {
-
-    }
-
     public virtual void Enter()
     {
         //DoChecks();
         startTime = Time.time;
-        player.Anim.SetBool(animBoolName, true);
         player.SetVelocity(Vector2.zero);
-        Debug.Log(animBoolName);
+        player.Anim.SetBool(animBoolName, true);
+
+        Debug.Log(animBoolName + " Enter");
     }
 
     public virtual void Exit()
     {
         player.Anim.SetBool(animBoolName, false);
+
+        Debug.Log(animBoolName + " Exit");
+
     }
 
     public virtual void LogicUpdate()
@@ -48,4 +47,6 @@ public class PlayerState
     {
 
     }
+
+    public virtual void DoChecks() { }
 }

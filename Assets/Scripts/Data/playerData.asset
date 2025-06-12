@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementVelocity: 4
-  amountOfRolls: 2
+  amountOfRolls: 3
   rollForce: 12
   rollDrag: 5
-  rollTime: 0.25
+  rollTime: 0.2
+  rollEndTime: 0
   rollCoolDown: 0.5
-  amountOfDashs: 3
-  dashForce: 12
-  dashDrag: 5
-  dashTime: 0.25
-  dashCoolDown: 0.5

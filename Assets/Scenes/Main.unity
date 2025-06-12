@@ -4363,6 +4363,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 71d1930321beeee49a057d1eba15c771, type: 2}
   weapon: {fileID: 787057977}
+  dashForce: 12
+  dashDrag: 5
+  dashTime: 0.3
+  dashDelay: 0.03
   attackTime: 0.4
   attackDelay: 0.02
 --- !u!50 &1372254969
@@ -4404,7 +4408,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 39032ae1772899f44b5550c450e42eb3, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
