@@ -4402,7 +4402,7 @@ Animator:
   m_GameObject: {fileID: 1372254966}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e19dc050902895d40be93dd290cb623a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 39032ae1772899f44b5550c450e42eb3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4523,7 +4523,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1372254972}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnDashInput
+        m_MethodName: OnRollInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PlayerDashState : PlayerAbilityState
+public class PlayerRollState : PlayerAbilityState
 {
-    private int amountOfDashsLeft;
+    private int amountOfRollsLeft;
 
-    private float lastDashTime;
+    private float lastRollTime;
 
-    public PlayerDashState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerRollState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
-        amountOfDashsLeft = playerData.amountOfDashs;
+        amountOfRollsLeft = playerData.amountOfRolls;
     }
 
     public override void DoChecks()
@@ -27,17 +28,17 @@ public class PlayerDashState : PlayerAbilityState
         player.SetAnimValueByMouseDirection(mouseDirection);
         player.CheckIfShouldFlip(mouseDirection.x);
 
-        player.RB.drag = playerData.dashDrag;
-        player.RB.AddForce(mouseDirection * playerData.dashForce, ForceMode2D.Impulse);
+        player.RB.drag = playerData.rollDrag;
+        player.RB.AddForce(mouseDirection * playerData.rollForce, ForceMode2D.Impulse);
 
-        amountOfDashsLeft--;
+        amountOfRollsLeft--;
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        lastDashTime = Time.time;
+        lastRollTime = Time.time;
         player.RB.drag = 0f;
     }
 
@@ -45,7 +46,7 @@ public class PlayerDashState : PlayerAbilityState
     {
         base.LogicUpdate();
 
-        if (Time.time >= startTime + playerData.dashTime)
+        if (Time.time >= startTime + playerData.rollTime)
         {
             stateMachine.ChangeState(player.IdleState);
             return;
@@ -57,17 +58,17 @@ public class PlayerDashState : PlayerAbilityState
         base.PhysicsUpdate();
     }
 
-    public bool CanDash()
+    public bool CanRoll()
     {
-        if (amountOfDashsLeft > 0)
+        if (amountOfRollsLeft > 0)
         {
             return true;
         }
         else
         {
-            if (Time.time >= lastDashTime + playerData.dashCoolDown)
+            if (Time.time >= lastRollTime + playerData.rollCoolDown)
             {
-                amountOfDashsLeft = playerData.amountOfDashs;
+                amountOfRollsLeft = playerData.amountOfRolls;
                 return true;
             }
 

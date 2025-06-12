@@ -7,16 +7,16 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MovementInput { get; private set; }
 
-    public bool DashInput { get; private set; }
+    public bool RollInput { get; private set; }
 
     [SerializeField]
     private float inputHoldTime = 0.2f;
 
-    private float dashStartTime;
+    private float rollstartTime;
 
     private void Update()
     {
-        CheckDashInputHoldTime();
+        CheckRollInputHoldTime();
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -29,22 +29,22 @@ public class PlayerInputHandler : MonoBehaviour
         MovementInput = new Vector2(NormInputX, NormInputY).normalized;
     }
 
-    public void OnDashInput(InputAction.CallbackContext context)
+    public void OnRollInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            DashInput = true;
-            dashStartTime = Time.time;
+            RollInput = true;
+            rollstartTime = Time.time;
         }
     }
 
-    public void UseDashInput() => DashInput = false;
+    public void UseDashInput() => RollInput = false;
 
-    private void CheckDashInputHoldTime()
+    private void CheckRollInputHoldTime()
     {
-        if (Time.time >= dashStartTime + inputHoldTime)
+        if (Time.time >= rollstartTime + inputHoldTime)
         {
-            DashInput = false;
+            RollInput = false;
         }
     }
 

@@ -6,7 +6,7 @@ public class PlayerNormalState : PlayerState
 {
     protected Vector2 input;
 
-    private bool dashInput;
+    private bool rollInput;
 
     public PlayerNormalState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -35,13 +35,13 @@ public class PlayerNormalState : PlayerState
 
         input = player.InputHandler.MovementInput;
 
-        dashInput = player.InputHandler.DashInput;
+        rollInput = player.InputHandler.RollInput;
 
         // 대쉬 상태 전환
-        if (dashInput && player.DashState.CanDash())
+        if (rollInput && player.RollState.CanRoll())
         {
             player.InputHandler.UseDashInput();
-            stateMachine.ChangeState(player.DashState);
+            stateMachine.ChangeState(player.RollState);
             return;
         }
     }

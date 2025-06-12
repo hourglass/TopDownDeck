@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
-    public PlayerDashState DashState { get; private set; }
+    public PlayerRollState RollState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
 
@@ -30,44 +30,13 @@ public class Player : MonoBehaviour
     private Camera cam;
 
 
-    [SerializeField]
-    private Weapon weapon;
-
-    [SerializeField]
-    private float attackTime;
-
-    [SerializeField]
-    private float attackDelay;
-
-
-    private enum State
-    {
-        Idle,
-        Move,
-        Dash,
-        Attack
-    }
-
-    private State currentState;
-
-    private PlayerInput playerControls;
-
-    private bool dashEnabled;
-    private bool attackEnabled;
-
-    private Coroutine dashCorutine;
-    private Coroutine attackCorutine;
-
-    private Weapon currentWeapon;
-
-
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
-        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
+        RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
 
         playerControls = new PlayerInput();
 
@@ -207,16 +176,16 @@ public class Player : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         Vector3 mouseDirection = GetMouseDirection();
-        RB.AddForce(mouseDirection * playerData.dashForce, ForceMode2D.Impulse);
-        RB.drag = playerData.dashDrag;
+        RB.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
+        RB.drag = dashDrag;
 
-        yield return new WaitForSeconds(playerData.dashTime);
+        yield return new WaitForSeconds(dashTime);
 
         RB.velocity = Vector3.zero;
         attackEnabled = true;
         Anim.SetInteger("state", (int)State.Idle);
 
-        yield return new WaitForSeconds(0.03f);
+        yield return new WaitForSeconds(dashDelay);
 
         ChangeState(State.Idle);
     }
@@ -291,5 +260,47 @@ public class Player : MonoBehaviour
         currentWeapon.SetAnim(Anim);
         currentWeapon.SetPlayerRb(RB);
     }
+
+
+    private enum State
+    {
+        Idle,
+        Move,
+        Dash,
+        Attack
+    }
+
+    private State currentState;
+
+    private PlayerInput playerControls;
+
+    private bool dashEnabled;
+    private bool attackEnabled;
+
+    private Coroutine dashCorutine;
+    private Coroutine attackCorutine;
+
+    private Weapon currentWeapon;
+
+    [SerializeField]
+    private Weapon weapon;
+
+    [SerializeField]
+    public float dashForce = 12f;
+
+    [SerializeField]
+    public float dashDrag = 5f;
+
+    [SerializeField]
+    public float dashTime = 0.3f;
+
+    [SerializeField]
+    public float dashDelay = 0.03f;
+
+    [SerializeField]
+    private float attackTime = 0.4f;
+
+    [SerializeField]
+    private float attackDelay = 0.2f;
 }
 
