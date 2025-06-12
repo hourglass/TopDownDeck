@@ -16,6 +16,5 @@ MonoBehaviour:
   amountOfRolls: 3
   rollForce: 12
   rollDrag: 5
-  rollTime: 0.2
-  rollEndTime: 0
+  rollTime: 0.35
   rollCoolDown: 0.5

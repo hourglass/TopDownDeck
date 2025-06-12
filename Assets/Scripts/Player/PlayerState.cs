@@ -27,15 +27,12 @@ public class PlayerState
         player.SetVelocity(Vector2.zero);
         player.Anim.SetBool(animBoolName, true);
 
-        Debug.Log(animBoolName + " Enter");
+        Debug.Log(animBoolName);
     }
 
     public virtual void Exit()
     {
         player.Anim.SetBool(animBoolName, false);
-
-        Debug.Log(animBoolName + " Exit");
-
     }
 
     public virtual void LogicUpdate()
