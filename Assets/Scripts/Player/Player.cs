@@ -250,7 +250,6 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        Debug.Log("state:" + state);
         Anim.SetInteger("state", (int)state);
         currentState = state;
     }
