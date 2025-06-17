@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    public PlayerData playerData;
+
     public PlayerStateMachine StateMachine { get; private set; }
 
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
     public PlayerRollState RollState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
-
 
     public PlayerInputHandler InputHandler { get; private set; }
 
@@ -22,24 +23,25 @@ public class Player : MonoBehaviour
 
     public Vector2 CurrentVelocity { get; private set; }
 
-    [SerializeField]
-    public PlayerData playerData;
-
-    private Vector2 workspace;
 
     private SpriteRenderer Renderer;
 
     private Camera cam;
 
+    private Weapon weapon;
+
 
     private void Awake()
     {
+        // TODO::Create By GameManager
+        weapon = transform.Find("Weapon").GetComponent<Weapon>();
+
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
     }
 
     private void Start()
@@ -68,9 +70,8 @@ public class Player : MonoBehaviour
 
     public void SetVelocity(Vector2 velocity)
     {
-        workspace = velocity;
-        RB.velocity = workspace;
-        CurrentVelocity = workspace;
+        RB.velocity = velocity;
+        CurrentVelocity = velocity;
     }
 
     public void CheckIfShouldFlip(float xInput)
@@ -99,7 +100,6 @@ public class Player : MonoBehaviour
         // 값을 애니메이터에 적용
         Anim.SetFloat("mouseX", mouseX);
         Anim.SetFloat("mouseY", mouseY);
-
         Anim.SetFloat("inputX", mouseX);
         Anim.SetFloat("inputY", mouseY);
     }
