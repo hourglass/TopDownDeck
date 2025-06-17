@@ -25,8 +25,8 @@ public class PlayerRollState : PlayerAbilityState
 
         mouseDirection = player.GetMouseDirection();
 
-        player.SetAnimValueByMouseDirection(mouseDirection);
         player.CheckIfShouldFlip(mouseDirection.x);
+        player.SetAnimValueByMouseDirection(mouseDirection);
 
         player.RB.drag = playerData.rollDrag;
         player.RB.AddForce(mouseDirection * playerData.rollForce, ForceMode2D.Impulse);

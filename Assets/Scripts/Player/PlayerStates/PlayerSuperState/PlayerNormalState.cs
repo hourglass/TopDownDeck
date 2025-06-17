@@ -39,7 +39,7 @@ public class PlayerNormalState : PlayerState
         attackInput = player.InputHandler.AttackInput;
         if (attackInput)
         {
-            //stateMachine.ChangeState(player.AttackState);
+            stateMachine.ChangeState(player.AttackState);
             return;
         }
 

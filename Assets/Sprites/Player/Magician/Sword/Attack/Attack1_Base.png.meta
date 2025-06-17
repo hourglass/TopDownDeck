@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ff892b0a4e7105468e07ef1c699b930
+guid: 6aee752dcbb19dc4a893c4050dd1f1d0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_0
+      name: Attack1_Base_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c14dab28c5057c14696274e846468a61
-      internalID: -1162549302
+      spriteID: 35d2aef98de0ee04fa6dc630e561f800
+      internalID: 711204930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_1
+      name: Attack1_Base_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a28a94488030193478b70cc4864361da
-      internalID: 1209574281
+      spriteID: c11c66cd8a13ec84c8597476fa6f2b79
+      internalID: -969244233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_2
+      name: Attack1_Base_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc7f62d4fd4e67046bbafe909835baf7
-      internalID: 2115056609
+      spriteID: eeb4abccaeb1f9949b6de16c94301c30
+      internalID: -703492296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_3
+      name: Attack1_Base_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eac7a5ce15fd82c468b64f27fb3c9abd
-      internalID: -694978298
+      spriteID: c42dc1a8ae11f4a43a91d2c747ab5f18
+      internalID: 1200047757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_4
+      name: Attack1_Base_4
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f0d70a6b0d6df746adc555e3e87e434
-      internalID: 1137361534
+      spriteID: afad49d0429ffe14d87d735289045514
+      internalID: 632681711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_5
+      name: Attack1_Base_5
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22b2ed8dd68833646b7d43b3234b0bee
-      internalID: 1281847691
+      spriteID: 4a3b7bc15b5b77947b9207b619ca230a
+      internalID: 525889539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_6
+      name: Attack1_Base_6
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce7896e30d98f7c45b5a56aae1f58ab6
-      internalID: 575121259
+      spriteID: fbb253a546d0bca4fb36225766c39881
+      internalID: 503971106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_7
+      name: Attack1_Base_7
       rect:
         serializedVersion: 2
         x: 64
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fe2e420c5dd18c4caf9317144e6e035
-      internalID: -623182502
+      spriteID: 88254330c43928e47a6f56f4cc5d465e
+      internalID: 191182363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_8
+      name: Attack1_Base_8
       rect:
         serializedVersion: 2
         x: 128
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de7d6db59ee709b489b931a9b5ee21ab
-      internalID: 350945091
+      spriteID: c4f9012eeef0c854b9a51a1020265b87
+      internalID: 1146783327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_9
+      name: Attack1_Base_9
       rect:
         serializedVersion: 2
         x: 192
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ed6476e398f28498a39dbed6a50428
-      internalID: 1826125103
+      spriteID: 3ea77e81a2936104da2e8e7379df241d
+      internalID: 1897907331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_10
+      name: Attack1_Base_10
       rect:
         serializedVersion: 2
         x: 256
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969ac85166e34f842939840075a46117
-      internalID: 225674902
+      spriteID: 258c0f9446099914cb44334dc61603ec
+      internalID: 304131246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_11
+      name: Attack1_Base_11
       rect:
         serializedVersion: 2
         x: 320
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d48135bdc6cd397478bdb9ee500fa0ea
-      internalID: -1448190581
+      spriteID: fbcfb5cd6e385274a88d11a41607fbcc
+      internalID: -949154562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_12
+      name: Attack1_Base_12
       rect:
         serializedVersion: 2
         x: 0
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10df2fdcb2b9ef643b5bb12c6ead8455
-      internalID: -1735045281
+      spriteID: d44db483db2978545840bd5326fc6b83
+      internalID: -547248465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_13
+      name: Attack1_Base_13
       rect:
         serializedVersion: 2
         x: 64
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51258b8dd4c9ede4d93a441692697905
-      internalID: -575015852
+      spriteID: c24afee03c7c4214e8e551a4fa4f87f0
+      internalID: -638518026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_14
+      name: Attack1_Base_14
       rect:
         serializedVersion: 2
         x: 128
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffff72ebc62092143bfdc96441868430
-      internalID: -2059446476
+      spriteID: 74457b0963dbab242a7da950e5706ff7
+      internalID: -769785935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_15
+      name: Attack1_Base_15
       rect:
         serializedVersion: 2
         x: 192
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc56864273e2907409a67c7fb77adaf7
-      internalID: -1249819256
+      spriteID: a10a905fd0759b9468766c2a22bedaa3
+      internalID: 899382387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_16
+      name: Attack1_Base_16
       rect:
         serializedVersion: 2
         x: 256
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b262cd1c261a89438847ddd949557b7
-      internalID: 2094452943
+      spriteID: 3967511026358194f9b73a6068935e3d
+      internalID: -1412110416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_17
+      name: Attack1_Base_17
       rect:
         serializedVersion: 2
         x: 320
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7e39216f7c55d4580fcbab135bed01
-      internalID: 338881227
+      spriteID: 3516ebf75bc80254f94b3aa32f2c2eff
+      internalID: 71237811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_18
+      name: Attack1_Base_18
       rect:
         serializedVersion: 2
         x: 0
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25a6d4ff336a1b14fae382037c3939fc
-      internalID: -117701467
+      spriteID: cc1bf096b1d3efe4eb0186bfabba8fb1
+      internalID: -1306582437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_19
+      name: Attack1_Base_19
       rect:
         serializedVersion: 2
         x: 64
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26cd43bbf7fc00428b242702717b4a7
-      internalID: -37338967
+      spriteID: ee27e21165c5edc4e80634a1b0560f06
+      internalID: 1051574397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_20
+      name: Attack1_Base_20
       rect:
         serializedVersion: 2
         x: 128
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3461d55daa5acca4b9e6bfd4a99e4651
-      internalID: 1397749200
+      spriteID: c51774ce589b3d543a4fc3491d6f7eb6
+      internalID: 296573551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_21
+      name: Attack1_Base_21
       rect:
         serializedVersion: 2
         x: 192
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11b714c57cded714c994c1327d3ecc0d
-      internalID: -834145247
+      spriteID: ab1191ae97211a14296ec0b484fcdf62
+      internalID: -179678671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_22
+      name: Attack1_Base_22
       rect:
         serializedVersion: 2
         x: 256
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e68d7ec013f48a4b8741318113800e1
-      internalID: -70946706
+      spriteID: 48d5045bdead6364a95d4c261c0dd191
+      internalID: 1282215506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_23
+      name: Attack1_Base_23
       rect:
         serializedVersion: 2
         x: 320
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c8cca6f0d7984f448f3a8955539c884
-      internalID: 770954257
+      spriteID: ebfd592a6037bbc408841c6e6684b13b
+      internalID: 67848774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_24
+      name: Attack1_Base_24
       rect:
         serializedVersion: 2
         x: 0
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 649a6a052aa53084f9420b57949bc559
-      internalID: 1150758542
+      spriteID: 027979a945caa064daf26a3c534252c7
+      internalID: -1560257408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_25
+      name: Attack1_Base_25
       rect:
         serializedVersion: 2
         x: 64
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56391a550980b2d4cbdf442626cd4b91
-      internalID: -37645393
+      spriteID: 806e392b04afde84da1b0dd7e704fa86
+      internalID: -1865399649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_26
+      name: Attack1_Base_26
       rect:
         serializedVersion: 2
         x: 128
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2658b2d5e9a25794badf5d693942df72
-      internalID: -1336589152
+      spriteID: 6cae1b5854628d34f9797eca3c23afe0
+      internalID: 648125523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_27
+      name: Attack1_Base_27
       rect:
         serializedVersion: 2
         x: 192
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cd269f69f5d0a54f895b0a9ebab75dd
-      internalID: 2085583311
+      spriteID: 0a4a8f5ff2a5fac44a2359037ad46add
+      internalID: 1435045020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_28
+      name: Attack1_Base_28
       rect:
         serializedVersion: 2
         x: 256
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 006d63837a50195448fff34446f34f52
-      internalID: -1453476457
+      spriteID: 554e418baa58837418b037781881aef2
+      internalID: 60997543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash2_Flame_Vfx_29
+      name: Attack1_Base_29
       rect:
         serializedVersion: 2
         x: 320
@@ -746,8 +746,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e20faffa495cc04bbe16364510d04a2
-      internalID: 1223734719
+      spriteID: 4dec2f9d2b3da4647ac3c9879807b1bf
+      internalID: -492322420
       vertices: []
       indices: 
       edges: []
@@ -763,36 +763,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slash2_Flame_Vfx_0: -1162549302
-      Slash2_Flame_Vfx_1: 1209574281
-      Slash2_Flame_Vfx_10: 225674902
-      Slash2_Flame_Vfx_11: -1448190581
-      Slash2_Flame_Vfx_12: -1735045281
-      Slash2_Flame_Vfx_13: -575015852
-      Slash2_Flame_Vfx_14: -2059446476
-      Slash2_Flame_Vfx_15: -1249819256
-      Slash2_Flame_Vfx_16: 2094452943
-      Slash2_Flame_Vfx_17: 338881227
-      Slash2_Flame_Vfx_18: -117701467
-      Slash2_Flame_Vfx_19: -37338967
-      Slash2_Flame_Vfx_2: 2115056609
-      Slash2_Flame_Vfx_20: 1397749200
-      Slash2_Flame_Vfx_21: -834145247
-      Slash2_Flame_Vfx_22: -70946706
-      Slash2_Flame_Vfx_23: 770954257
-      Slash2_Flame_Vfx_24: 1150758542
-      Slash2_Flame_Vfx_25: -37645393
-      Slash2_Flame_Vfx_26: -1336589152
-      Slash2_Flame_Vfx_27: 2085583311
-      Slash2_Flame_Vfx_28: -1453476457
-      Slash2_Flame_Vfx_29: 1223734719
-      Slash2_Flame_Vfx_3: -694978298
-      Slash2_Flame_Vfx_4: 1137361534
-      Slash2_Flame_Vfx_5: 1281847691
-      Slash2_Flame_Vfx_6: 575121259
-      Slash2_Flame_Vfx_7: -623182502
-      Slash2_Flame_Vfx_8: 350945091
-      Slash2_Flame_Vfx_9: 1826125103
+      Attack1_Base_0: 711204930
+      Attack1_Base_1: -969244233
+      Attack1_Base_10: 304131246
+      Attack1_Base_11: -949154562
+      Attack1_Base_12: -547248465
+      Attack1_Base_13: -638518026
+      Attack1_Base_14: -769785935
+      Attack1_Base_15: 899382387
+      Attack1_Base_16: -1412110416
+      Attack1_Base_17: 71237811
+      Attack1_Base_18: -1306582437
+      Attack1_Base_19: 1051574397
+      Attack1_Base_2: -703492296
+      Attack1_Base_20: 296573551
+      Attack1_Base_21: -179678671
+      Attack1_Base_22: 1282215506
+      Attack1_Base_23: 67848774
+      Attack1_Base_24: -1560257408
+      Attack1_Base_25: -1865399649
+      Attack1_Base_26: 648125523
+      Attack1_Base_27: 1435045020
+      Attack1_Base_28: 60997543
+      Attack1_Base_29: -492322420
+      Attack1_Base_3: 1200047757
+      Attack1_Base_4: 632681711
+      Attack1_Base_5: 525889539
+      Attack1_Base_6: 503971106
+      Attack1_Base_7: 191182363
+      Attack1_Base_8: 1146783327
+      Attack1_Base_9: 1897907331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

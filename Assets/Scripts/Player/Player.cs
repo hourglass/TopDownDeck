@@ -24,11 +24,11 @@ public class Player : MonoBehaviour
     public Vector2 CurrentVelocity { get; private set; }
 
 
-    private SpriteRenderer Renderer;
-
     private Camera cam;
 
     private Weapon weapon;
+
+    private float facingDirection;
 
 
     private void Awake()
@@ -46,12 +46,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        InputHandler = GetComponent<PlayerInputHandler>();
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
-        Renderer = GetComponent<SpriteRenderer>();
-        InputHandler = GetComponent<PlayerInputHandler>();
 
         cam = Camera.main;
+
+        facingDirection = 1f;
 
         StateMachine.Initailize(IdleState);
     }
@@ -76,7 +77,11 @@ public class Player : MonoBehaviour
 
     public void CheckIfShouldFlip(float xInput)
     {
-        Renderer.flipX = (xInput < 0f) ? true : false;
+        if (xInput != 0f && xInput * facingDirection < 0f)
+        {
+            facingDirection *= -1f;
+            transform.Rotate(0f, 180f, 0f);
+        }
     }
 
     public Vector3 GetMouseDirection()

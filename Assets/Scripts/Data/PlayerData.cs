@@ -14,4 +14,8 @@ public class PlayerData : ScriptableObject
     public float rollDrag = 5f;
     public float rollTime = 0.25f;
     public float rollCoolDown = 0.5f;
+
+    [Header("Attack State")]
+    public float attackTime = 0.4f;
+    public float attackCoolDown = 0.2f;
 }
