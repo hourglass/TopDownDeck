@@ -9,14 +9,20 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool RollInput { get; private set; }
 
+    public bool AttackInput { get; private set; }
+
+
     [SerializeField]
     private float inputHoldTime = 0.2f;
 
-    private float rollstartTime;
+    private float rollStartTime;
+
+    private float attackStartTime;
 
     private void Update()
     {
         CheckRollInputHoldTime();
+        CheckAttackInputHoldTime();
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -34,15 +40,15 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             RollInput = true;
-            rollstartTime = Time.time;
+            rollStartTime = Time.time;
         }
     }
 
-    public void UseDashInput() => RollInput = false;
+    public void UseRollInput() => RollInput = false;
 
     private void CheckRollInputHoldTime()
     {
-        if (Time.time >= rollstartTime + inputHoldTime)
+        if (Time.time >= rollStartTime + inputHoldTime)
         {
             RollInput = false;
         }
@@ -50,6 +56,20 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
+        if (context.started)
+        {
+            AttackInput = true;
+            attackStartTime = Time.time;
+        }
+    }
 
+    public void UseAttackInput() => RollInput = false;
+
+    private void CheckAttackInputHoldTime()
+    {
+        if (Time.time >= attackStartTime + inputHoldTime)
+        {
+            AttackInput = false;
+        }
     }
 }

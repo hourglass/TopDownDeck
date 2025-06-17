@@ -8,6 +8,9 @@ public class PlayerNormalState : PlayerState
 
     private bool rollInput;
 
+    private bool attackInput;
+
+
     public PlayerNormalState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -33,13 +36,19 @@ public class PlayerNormalState : PlayerState
 
         input = player.InputHandler.MovementInput;
 
-        rollInput = player.InputHandler.RollInput;
+        attackInput = player.InputHandler.AttackInput;
+        if (attackInput)
+        {
+            //stateMachine.ChangeState(player.AttackState);
+            return;
+        }
 
-        // 대쉬 상태 전환
+        rollInput = player.InputHandler.RollInput;
         if (rollInput && player.RollState.CanRoll())
         {
-            player.InputHandler.UseDashInput();
+            // 대쉬 상태 전환
             stateMachine.ChangeState(player.RollState);
+            player.InputHandler.UseRollInput();
             return;
         }
     }

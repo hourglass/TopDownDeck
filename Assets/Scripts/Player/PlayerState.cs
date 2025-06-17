@@ -27,6 +27,7 @@ public class PlayerState
         player.SetVelocity(Vector2.zero);
         player.Anim.SetBool(animBoolName, true);
         player.Anim.Play(0);
+
         //Debug.Log(animBoolName);
     }
 

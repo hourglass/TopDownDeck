@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
     public PlayerRollState RollState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; }
+
 
     public PlayerInputHandler InputHandler { get; private set; }
 
@@ -37,17 +39,7 @@ public class Player : MonoBehaviour
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
-
-        playerControls = new PlayerInput();
-
-        currentState = State.Idle;
-        dashEnabled = true;
-        attackEnabled = true;
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Enable();
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
 
     private void Start()
@@ -60,26 +52,19 @@ public class Player : MonoBehaviour
         cam = Camera.main;
 
         StateMachine.Initailize(IdleState);
-
-        //TODO: Refactoring
-        //playerControls.Gameplay.Dash.started += _ => Dash();
-        playerControls.Gameplay.Attack.started += _ => Attack();
-
-        SetCurrentWeapon();
     }
 
     private void Update()
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
-
-        //Move();
     }
 
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
+
 
     public void SetVelocity(Vector2 velocity)
     {
@@ -118,189 +103,5 @@ public class Player : MonoBehaviour
         Anim.SetFloat("inputX", mouseX);
         Anim.SetFloat("inputY", mouseY);
     }
-
-
-
-    private void Move()
-    {
-        if (!(currentState == State.Idle || currentState == State.Move))
-        {
-            return;
-        }
-
-        Vector2 input = playerControls.Gameplay.Move.ReadValue<Vector2>();
-
-        // 정지 상태 전환
-        if (input.x == 0 && input.y == 0)
-        {
-            ChangeState(State.Idle);
-            return;
-        }
-        else
-        {
-            ChangeState(State.Move);
-
-            // 값을 애니메이터에 적용
-            Anim.SetFloat("inputX", input.x);
-            Anim.SetFloat("inputY", input.y);
-
-            // 스프라이트 플립
-            CheckIfShouldFlip(input.x);
-
-            // 플레이어 이동
-            SetVelocity(input * playerData.movementVelocity);
-        }
-    }
-
-    private void Dash()
-    {
-        if (!dashEnabled)
-        {
-            return;
-        }
-
-        if (currentState == State.Attack)
-        {
-            StopCoroutine(attackCorutine);
-        }
-
-        ChangeState(State.Dash);
-
-        Vector3 mouseDirection = GetMouseDirection();
-        CheckIfShouldFlip(mouseDirection.x);
-        SetAnimValueByMouseDirection(mouseDirection);
-
-        dashCorutine = StartCoroutine(DashCoroutine());
-    }
-
-    private IEnumerator DashCoroutine()
-    {
-        Vector3 mouseDirection = GetMouseDirection();
-        RB.AddForce(mouseDirection * dashForce, ForceMode2D.Impulse);
-        RB.drag = dashDrag;
-
-        yield return new WaitForSeconds(dashTime);
-
-        RB.velocity = Vector3.zero;
-        attackEnabled = true;
-        Anim.SetInteger("state", (int)State.Idle);
-
-        yield return new WaitForSeconds(dashDelay);
-
-        ChangeState(State.Idle);
-    }
-
-    private void Attack()
-    {
-        if (!attackEnabled)
-        {
-            return;
-        }
-
-        ChangeState(State.Attack);
-
-        Vector3 mouseDirection = GetMouseDirection();
-        CheckIfShouldFlip(mouseDirection.x);
-        SetAnimValueByMouseDirection(mouseDirection);
-        currentWeapon.SetMouseDirection(mouseDirection);
-
-        attackCorutine = StartCoroutine(AttackCoroutine());
-    }
-
-    private IEnumerator AttackCoroutine()
-    {
-        currentWeapon.Attack();
-
-        float attackCancle = attackTime * 0.5f;
-        yield return new WaitForSeconds(attackCancle);
-
-        yield return new WaitForSeconds(attackTime - attackCancle);
-
-        RB.velocity = Vector3.zero;
-
-        yield return new WaitForSeconds(attackDelay);
-
-        ChangeState(State.Idle);
-    }
-
-    private void ChangeState(State state)
-    {
-        if (currentState == state)
-        {
-            return;
-        }
-
-        switch (state)
-        {
-            case State.Idle:
-                dashEnabled = true;
-                attackEnabled = true;
-                RB.velocity = Vector3.zero;
-                RB.drag = 0f;
-                break;
-            case State.Move:
-                break;
-            case State.Dash:
-                dashEnabled = false;
-                attackEnabled = false;
-                break;
-            case State.Attack:
-                dashEnabled = false;
-                attackEnabled = false;
-                break;
-        }
-
-        Anim.SetInteger("state", (int)state);
-        currentState = state;
-    }
-
-    private void SetCurrentWeapon()
-    {
-        currentWeapon = weapon;
-        currentWeapon.SetAnim(Anim);
-        currentWeapon.SetPlayerRb(RB);
-    }
-
-
-    private enum State
-    {
-        Idle,
-        Move,
-        Dash,
-        Attack
-    }
-
-    private State currentState;
-
-    private PlayerInput playerControls;
-
-    private bool dashEnabled;
-    private bool attackEnabled;
-
-    private Coroutine dashCorutine;
-    private Coroutine attackCorutine;
-
-    private Weapon currentWeapon;
-
-    [SerializeField]
-    private Weapon weapon;
-
-    [SerializeField]
-    public float dashForce = 12f;
-
-    [SerializeField]
-    public float dashDrag = 5f;
-
-    [SerializeField]
-    public float dashTime = 0.3f;
-
-    [SerializeField]
-    public float dashDelay = 0.03f;
-
-    [SerializeField]
-    private float attackTime = 0.4f;
-
-    [SerializeField]
-    private float attackDelay = 0.2f;
 }
 
