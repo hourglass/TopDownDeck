@@ -75,16 +75,19 @@ public class Player : MonoBehaviour
         CurrentVelocity = velocity;
     }
 
-    public void CheckIfShouldFlip(float xInput)
+    public void CheckIfShouldFlip(Vector2 input)
     {
-        if (xInput != 0f && xInput * facingDirection < 0f)
+        float xAbs = Mathf.Abs(input.x);
+        float yAbs = Mathf.Abs(input.y);
+
+        if (input.x != 0f && input.x * facingDirection < 0f && (xAbs > 0.2f || yAbs < 0.866f))
         {
             facingDirection *= -1f;
             transform.Rotate(0f, 180f, 0f);
         }
     }
 
-    public Vector3 GetMouseDirection()
+    public Vector2 GetMouseDirection()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
         Vector3 mouseScreenPoint = UnityEngine.Input.mousePosition;

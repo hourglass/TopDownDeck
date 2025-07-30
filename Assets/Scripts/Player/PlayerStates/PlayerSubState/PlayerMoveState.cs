@@ -47,7 +47,7 @@ public class PlayerMoveState : PlayerNormalState
         player.Anim.SetFloat("inputY", input.y);
 
         // 스프라이트 플립
-        player.CheckIfShouldFlip(input.x);
+        player.CheckIfShouldFlip(input);
     }
 
     public override void PhysicsUpdate()
