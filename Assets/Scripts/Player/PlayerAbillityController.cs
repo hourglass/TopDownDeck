@@ -33,42 +33,22 @@ public class PlayerAbillityController : MonoBehaviour
         cachedAnimations["Attack"] = new Dictionary<int, AnimationClip[]>();
         cachedAnimations["Charge"] = new Dictionary<int, AnimationClip[]>();
         cachedAnimations["Skill"] = new Dictionary<int, AnimationClip[]>();
+
+        InitAnimations("Attack", attackMotionSet);
+        InitAnimations("Charge", chargeMotionSet);
+        InitAnimations("Skill", skillMotionSet);
     }
 
-    public void InitAttackAnimations()
+    public void InitAnimations(string motionType, MotionSetData motionSet)
     {
-        if (attackMotionSet == null) return;
-        cachedAnimations["Attack"].Clear();
-        for (int i = 0; i < attackMotionSet.motions.Length; i++)
+        if (motionSet == null) return;
+        cachedAnimations[motionType].Clear();
+        for (int i = 0; i < motionSet.motions.Length; i++)
         {
-            cachedAnimations["Attack"][i + 1] = attackMotionSet.motions[i].animations;
+            cachedAnimations[motionType][i + 1] = attackMotionSet.motions[i].animations;
         }
-        currentMotionSteps["Attack"] = 1;
-        UpdateAnimations("Attack");
-    }
-
-    public void InitChargeAnimations()
-    {
-        if (chargeMotionSet == null) return;
-        cachedAnimations["Charge"].Clear();
-        for (int i = 0; i < chargeMotionSet.motions.Length; i++)
-        {
-            cachedAnimations["Charge"][i + 1] = chargeMotionSet.motions[i].animations;
-        }
-        currentMotionSteps["Charge"] = 1;
-        UpdateAnimations("Charge");
-    }
-
-    public void InitSkillAnimations()
-    {
-        if (skillMotionSet == null) return;
-        cachedAnimations["Skill"].Clear();
-        for (int i = 0; i < skillMotionSet.motions.Length; i++)
-        {
-            cachedAnimations["Skill"][i + 1] = skillMotionSet.motions[i].animations;
-        }
-        currentMotionSteps["Charge"] = 1;
-        UpdateAnimations("Skill");
+        currentMotionSteps[motionType] = 1;
+        UpdateAnimations(motionType);
     }
 
     public void UpdateAnimations(string motionType)
@@ -85,8 +65,8 @@ public class PlayerAbillityController : MonoBehaviour
         }
 
         // motionStep 증가 및 초기화
-        int maxStep = cachedAnimations[motionType].Count;
         int currentStep = currentMotionSteps[motionType];
+        int maxStep = cachedAnimations[motionType].Count;
         if (currentStep > maxStep)
         {
             currentStep = 1;

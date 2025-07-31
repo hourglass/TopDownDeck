@@ -42,11 +42,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         InputHandler = GetComponent<PlayerInputHandler>();
+        AbillityController = GetComponent<PlayerAbillityController>();
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
-
-        AbillityController = GetComponent<PlayerAbillityController>();
-        AbillityController.InitAttackAnimations();
 
         cam = Camera.main;
 
