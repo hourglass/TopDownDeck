@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public PlayerAttackState AttackState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
+    public PlayerAbillityController AbillityController { get; private set; }
+
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
 
@@ -42,6 +44,9 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
+
+        AbillityController = GetComponent<PlayerAbillityController>();
+        AbillityController.InitAttackAnimations();
 
         cam = Camera.main;
 

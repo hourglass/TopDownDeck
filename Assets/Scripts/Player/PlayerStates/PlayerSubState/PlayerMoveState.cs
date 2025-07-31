@@ -8,11 +8,6 @@ public class PlayerMoveState : PlayerNormalState
     {
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
     public override void Enter()
     {
         base.Enter();

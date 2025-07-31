@@ -12,8 +12,11 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Enter();
 
+        player.AbillityController.UpdateAnimations("Attack");
+
         mouseDirection = player.GetMouseDirection();
         player.CheckIfShouldFlip(mouseDirection);
+        player.SetAnimValueByMouseDirection(mouseDirection);
     }
 
     public override void Exit()

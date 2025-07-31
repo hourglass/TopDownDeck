@@ -7,10 +7,7 @@ public class PlayerIdleState : PlayerNormalState
     public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
+
     public override void Enter()
     {
         base.Enter();

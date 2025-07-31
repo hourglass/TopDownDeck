@@ -22,13 +22,10 @@ public class PlayerState
 
     public virtual void Enter()
     {
-        //DoChecks();
         startTime = Time.time;
         player.SetVelocity(Vector2.zero);
         player.Anim.SetBool(animBoolName, true);
         player.Anim.Play(0);
-
-        //Debug.Log(animBoolName);
     }
 
     public virtual void Exit()
@@ -38,13 +35,9 @@ public class PlayerState
 
     public virtual void LogicUpdate()
     {
-
     }
 
     public virtual void PhysicsUpdate()
     {
-
     }
-
-    public virtual void DoChecks() { }
 }

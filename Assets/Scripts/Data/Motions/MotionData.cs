@@ -6,7 +6,7 @@ using UnityEngine;
 public class MotionData : ScriptableObject
 {
     public AnimationClip[] animations;
-    public int motionStep;
+    public int motionStep = 1;
     public float motionTime;
 }
 
