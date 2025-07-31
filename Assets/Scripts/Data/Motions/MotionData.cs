@@ -7,6 +7,6 @@ public class MotionData : ScriptableObject
 {
     public AnimationClip[] animations;
     public int motionStep;
-    public float playDuration;
+    public float motionTime;
 }
 

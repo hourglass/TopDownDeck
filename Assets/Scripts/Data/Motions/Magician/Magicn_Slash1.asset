@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2eeb4d52196c449cf49657b2d4f1f, type: 3}
+  m_Name: Magicn_Slash1
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: 1784854c58fd2bf449ff48d7fdf37b99, type: 2}
+  - {fileID: 7400000, guid: dee53ab5428f91d43ba0b740cede3de5, type: 2}
+  - {fileID: 7400000, guid: a9dc0c5dcf496a1408ddf318abf4dd22, type: 2}
+  - {fileID: 7400000, guid: ee47e09f87e2fd94b816f915e153902e, type: 2}
+  - {fileID: 7400000, guid: 8bebc768f18f54041882e00a76de9d53, type: 2}
+  motionStep: 1
+  motionTime: 0

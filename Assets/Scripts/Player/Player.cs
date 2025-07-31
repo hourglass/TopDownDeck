@@ -10,38 +10,31 @@ public class Player : MonoBehaviour
     public PlayerData playerData;
 
     public PlayerStateMachine StateMachine { get; private set; }
-
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
     public PlayerRollState RollState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
-
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
 
     public Vector2 CurrentVelocity { get; private set; }
 
-
+    
     private Camera cam;
-
-    private Weapon weapon;
 
     private float facingDirection;
 
 
     private void Awake()
     {
-        // TODO::Create By GameManager
-        weapon = transform.Find("Weapon").GetComponent<Weapon>();
-
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
 
     private void Start()
@@ -90,7 +83,7 @@ public class Player : MonoBehaviour
     public Vector2 GetMouseDirection()
     {
         // 마우스와 플레이어의 스크린 좌표 가져오기
-        Vector3 mouseScreenPoint = UnityEngine.Input.mousePosition;
+        Vector3 mouseScreenPoint = Input.mousePosition;
         Vector3 playerScreenPoint = cam.WorldToScreenPoint(transform.position);
 
         // 벡터 정규화
