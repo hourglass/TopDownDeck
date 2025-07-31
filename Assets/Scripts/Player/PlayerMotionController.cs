@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAbillityController : MonoBehaviour
+public class PlayerMotionController : MonoBehaviour
 {
     public MotionSetData attackMotionSet;
     public MotionSetData chargeMotionSet;

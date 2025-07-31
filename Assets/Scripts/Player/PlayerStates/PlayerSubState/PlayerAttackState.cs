@@ -12,7 +12,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Enter();
 
-        player.AbillityController.UpdateAnimations("Attack");
+        player.MotionController.UpdateAnimations("Attack");
 
         mouseDirection = player.GetMouseDirection();
         player.CheckIfShouldFlip(mouseDirection);

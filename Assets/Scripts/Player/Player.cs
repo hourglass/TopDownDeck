@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public PlayerAttackState AttackState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
-    public PlayerAbillityController AbillityController { get; private set; }
+    public PlayerMotionController MotionController { get; private set; }
 
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         InputHandler = GetComponent<PlayerInputHandler>();
-        AbillityController = GetComponent<PlayerAbillityController>();
+        MotionController = GetComponent<PlayerMotionController>();
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
 
