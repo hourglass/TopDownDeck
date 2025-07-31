@@ -23,7 +23,7 @@ public class PlayerIdleState : PlayerNormalState
         base.LogicUpdate();
 
         // 이동 상태 전환
-        if (input.x != 0 || input.y != 0)
+        if (moveInput.x != 0 || moveInput.y != 0)
         {
             stateMachine.ChangeState(player.MoveState);
             return;

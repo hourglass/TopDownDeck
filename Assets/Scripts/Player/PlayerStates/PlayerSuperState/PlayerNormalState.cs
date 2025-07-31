@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerNormalState : PlayerState
 {
-    protected Vector2 input;
+    protected Vector2 moveInput;
 
     private bool rollInput;
 
@@ -29,7 +29,7 @@ public class PlayerNormalState : PlayerState
     {
         base.LogicUpdate();
 
-        input = player.InputHandler.MovementInput;
+        moveInput = player.InputHandler.MovementInput;
 
         attackInput = player.InputHandler.AttackInput;
         if (attackInput)

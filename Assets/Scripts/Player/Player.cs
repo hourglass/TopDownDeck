@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     public Vector2 CurrentVelocity { get; private set; }
 
-    
+
     private Camera cam;
 
     private float facingDirection;

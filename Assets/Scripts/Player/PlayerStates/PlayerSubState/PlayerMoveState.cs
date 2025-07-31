@@ -28,21 +28,21 @@ public class PlayerMoveState : PlayerNormalState
         }
 
         // 정지 상태 전환
-        if (input.x == 0 && input.y == 0)
+        if (moveInput.x == 0 && moveInput.y == 0)
         {
             stateMachine.ChangeState(player.IdleState);
             return;
         }
 
         // 플레이어 이동
-        player.SetVelocity(input * playerData.movementVelocity);
+        player.SetVelocity(moveInput * playerData.movementVelocity);
 
         // 값을 애니메이터에 적용
-        player.Anim.SetFloat("inputX", input.x);
-        player.Anim.SetFloat("inputY", input.y);
+        player.Anim.SetFloat("inputX", moveInput.x);
+        player.Anim.SetFloat("inputY", moveInput.y);
 
         // 스프라이트 플립
-        player.CheckIfShouldFlip(input);
+        player.CheckIfShouldFlip(moveInput);
     }
 
     public override void PhysicsUpdate()
