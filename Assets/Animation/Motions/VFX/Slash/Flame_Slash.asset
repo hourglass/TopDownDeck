@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ccc48db6d02a34cb51343405cdcd17, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 450d78cfca014984599d04b59fd93e08, type: 3}
+  m_Name: Flame_Slash
   m_EditorClassIdentifier: 
-  movementVelocity: 4
-  amountOfRolls: 2
-  rollForce: 10
-  rollDrag: 5
-  rollTime: 0.35
-  rollCoolDown: 0.5
+  motions:
+  - {fileID: 11400000, guid: 866eca1eb53c85048abf1d5a524ccea1, type: 2}
+  - {fileID: 11400000, guid: 005e1e4f2dac0c949977fde75d0f733a, type: 2}

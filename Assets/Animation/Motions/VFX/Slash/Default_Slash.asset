@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ccc48db6d02a34cb51343405cdcd17, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 450d78cfca014984599d04b59fd93e08, type: 3}
+  m_Name: Default_Slash
   m_EditorClassIdentifier: 
-  movementVelocity: 4
-  amountOfRolls: 2
-  rollForce: 10
-  rollDrag: 5
-  rollTime: 0.35
-  rollCoolDown: 0.5
+  motions:
+  - {fileID: 11400000, guid: 29f65ff49f14efd47a6447a9b8c6e800, type: 2}
+  - {fileID: 11400000, guid: 62d0b29a73260274fbd704b6a5358834, type: 2}

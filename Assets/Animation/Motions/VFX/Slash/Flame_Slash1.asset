@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2eeb4d52196c449cf49657b2d4f1f, type: 3}
+  m_Name: Flame_Slash1
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: 8278fc0e1c788f3488da8fa4ee2b696f, type: 2}
+  - {fileID: 7400000, guid: 16f1097b5a154154b9631199034b17c1, type: 2}
+  - {fileID: 7400000, guid: d025bc45f06df6c438908bbcb5b2c61e, type: 2}
+  - {fileID: 7400000, guid: 7b38bac78ef17b7408b6e19103f1916d, type: 2}
+  - {fileID: 7400000, guid: 8c5b59e4b926e5f4e95281b0bc31e61a, type: 2}

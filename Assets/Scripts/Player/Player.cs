@@ -7,7 +7,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
+    private Weapon weapon;
+
     public PlayerData playerData;
+    public MotionSetData attackMotionSet;
+    public MotionSetData chargeMotionSet;
+    public MotionSetData skillMotionSet;
 
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
@@ -16,11 +21,10 @@ public class Player : MonoBehaviour
     public PlayerAttackState AttackState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
-    public PlayerMotionController MotionController { get; private set; }
+    public MotionController PlayerMotionController { get; private set; }
 
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
-
     public Vector2 CurrentVelocity { get; private set; }
 
 
@@ -32,25 +36,25 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
-
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon); 
     }
 
     private void Start()
     {
         InputHandler = GetComponent<PlayerInputHandler>();
-        MotionController = GetComponent<PlayerMotionController>();
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
 
-        cam = Camera.main;
-
-        facingDirection = 1f;
-
         StateMachine.Initailize(IdleState);
+
+        PlayerMotionController = new MotionController(Anim);
+        PlayerMotionController.Initialize("Attack", attackMotionSet);
+
+        cam = Camera.main;
+        facingDirection = 1f;
     }
 
     private void Update()
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
         float xAbs = Mathf.Abs(input.x);
         float yAbs = Mathf.Abs(input.y);
 
-        if (input.x != 0f && input.x * facingDirection < 0f && (xAbs > 0.2f || yAbs < 0.866f))
+        if (input.x != 0f && input.x * facingDirection < 0f && (xAbs > 0.3f || yAbs < 0.866f))
         {
             facingDirection *= -1f;
             transform.Rotate(0f, 180f, 0f);

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2eeb4d52196c449cf49657b2d4f1f, type: 3}
+  m_Name: Bloody_Slash1
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: 7bbcfe5e6a700f541972ab075891cf89, type: 2}
+  - {fileID: 7400000, guid: c0b1de8f57f90114faf754772266d7f5, type: 2}
+  - {fileID: 7400000, guid: 54a57c271bb6b044593304527eb43898, type: 2}
+  - {fileID: 7400000, guid: 1d16ed1236a08024b8d0e0e9745b6ea9, type: 2}
+  - {fileID: 7400000, guid: 573215256411eac4c8fe57f6b152cd68, type: 2}
