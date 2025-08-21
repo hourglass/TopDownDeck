@@ -8,8 +8,9 @@ public class MotionController
     private Dictionary<string, Dictionary<int, AnimationClip[]>> cachedAnimations = new Dictionary<string, Dictionary<int, AnimationClip[]>>();
     private Dictionary<string, int> currentMotionSteps = new Dictionary<string, int>();
 
-    public MotionController(Animator anim)
-    {
+
+    public void Initialize(Animator anim)
+    {   
         animator = anim;
         if (animator.runtimeAnimatorController != null)
         {
@@ -26,15 +27,16 @@ public class MotionController
         }
     }
 
-    public void Initialize(string motionType, MotionSetData motionSet)
+    public void RegisterMotionSet(string motionType, MotionSetData motionSet)
     {
-        // ÃÊ±â Ä³½Ì
+        // MotionSet µî·Ï
         cachedAnimations[motionType] = new Dictionary<int, AnimationClip[]>();
         SetAnimations(motionType, motionSet);
     }
 
     public void SetAnimations(string motionType, MotionSetData motionSet)
     {
+        // MotionSet Ä³½Ì
         if (motionSet == null) return;
         cachedAnimations[motionType].Clear();
         for (int i = 0; i < motionSet.motions.Length; i++)

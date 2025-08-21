@@ -12,7 +12,6 @@ public class PlayerInputHandler : MonoBehaviour
     public bool AttackInput { get; private set; }
 
 
-    [SerializeField]
     private float inputHoldTime = 0.2f;
 
     private float rollStartTime;

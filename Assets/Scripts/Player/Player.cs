@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -20,9 +21,9 @@ public class Player : MonoBehaviour
     public PlayerRollState RollState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
 
-    public PlayerInputHandler InputHandler { get; private set; }
-    public MotionController PlayerMotionController { get; private set; }
+    public MotionController CurrentMotionController { get; private set; }
 
+    public PlayerInputHandler InputHandler { get; private set; }
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
@@ -35,11 +36,13 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        CurrentMotionController = new MotionController();
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon); 
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
     }
 
     private void Start()
@@ -48,10 +51,10 @@ public class Player : MonoBehaviour
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
 
-        StateMachine.Initailize(IdleState);
+        CurrentMotionController.Initialize(Anim);
+        CurrentMotionController.RegisterMotionSet("Attack", attackMotionSet);
 
-        PlayerMotionController = new MotionController(Anim);
-        PlayerMotionController.Initialize("Attack", attackMotionSet);
+        StateMachine.Initailize(IdleState);
 
         cam = Camera.main;
         facingDirection = 1f;
@@ -93,10 +96,38 @@ public class Player : MonoBehaviour
         Vector3 mouseScreenPoint = Input.mousePosition;
         Vector3 playerScreenPoint = cam.WorldToScreenPoint(transform.position);
 
-        // 벡터 정규화
-        Vector2 mouseDirection = (mouseScreenPoint - playerScreenPoint).normalized;
+        // 벡터 계산
+        Vector2 mouseDirection = (mouseScreenPoint - playerScreenPoint);
+
+        // 길이 확인 및 보정
+        float sqrMag = mouseDirection.sqrMagnitude;
+        if (sqrMag > 0.01f)
+        {
+            // 임계값 초과: 정상 정규화
+            mouseDirection.Normalize();
+        }
+        else
+        {
+            if (sqrMag > 0f)
+            {
+                // 임계값 이하: 길이를 1로 보정
+                mouseDirection *= (1f / Mathf.Sqrt(sqrMag));
+            }
+            else
+            {
+                // 완전 0 벡터 시 Vector2.up 사용
+                mouseDirection = Vector2.up;
+            }
+        }
 
         return mouseDirection;
+    }
+
+    public void SetAnimValueByMoveInput(Vector2 MoveInput)
+    {
+        // 값을 애니메이터에 적용
+        Anim.SetFloat("inputX", MoveInput.x);
+        Anim.SetFloat("inputY", MoveInput.y);
     }
 
     public void SetAnimValueByMouseDirection(Vector2 mouseDirection)

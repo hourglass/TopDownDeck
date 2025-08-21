@@ -15,3 +15,4 @@ MonoBehaviour:
   motions:
   - {fileID: 11400000, guid: 866eca1eb53c85048abf1d5a524ccea1, type: 2}
   - {fileID: 11400000, guid: 005e1e4f2dac0c949977fde75d0f733a, type: 2}
+  motionTime: 0.4

@@ -38,8 +38,7 @@ public class PlayerMoveState : PlayerNormalState
         player.SetVelocity(moveInput * playerData.movementVelocity);
 
         // 값을 애니메이터에 적용
-        player.Anim.SetFloat("inputX", moveInput.x);
-        player.Anim.SetFloat("inputY", moveInput.y);
+        player.SetAnimValueByMoveInput(moveInput);
 
         // 스프라이트 플립
         player.CheckIfShouldFlip(moveInput);

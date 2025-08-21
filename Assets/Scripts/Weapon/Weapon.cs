@@ -4,31 +4,40 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public MotionSetData VFXMotionSet;
+    public MotionSetData MeleeAttackMotionSet;
 
-    public MotionController WeaponMotionController { get; private set; }
+    public MotionController CurrentMotionController { get; private set; }
 
-    public Animator Anim { get; private set; }
+
+    private Animator anim;
 
     private bool isMeleeAttack;
 
+
+    private void Awake()
+    {
+        CurrentMotionController = new MotionController();
+    }
+
     private void Start()
     {
-        Anim = GetComponent<Animator>();
-        WeaponMotionController = new MotionController(Anim);
-        WeaponMotionController.Initialize("VFX", VFXMotionSet);
+        anim = GetComponent<Animator>();
+
+        CurrentMotionController.Initialize(anim);
+        CurrentMotionController.RegisterMotionSet("MeleeAttack", MeleeAttackMotionSet);
     }
 
     public void Enter()
     {
         isMeleeAttack = true;
-        Anim.SetBool("meleeAttack", isMeleeAttack);
+        anim.SetBool("meleeAttack", isMeleeAttack);
+        CurrentMotionController.UpdateAnimations("MeleeAttack");
     }
 
     public void Exit()
     {
         isMeleeAttack = false;
-        Anim.SetBool("meleeAttack", isMeleeAttack);
+        anim.SetBool("meleeAttack", isMeleeAttack);
     }
 
     public void SetAnimValueByMouseDirection(Vector2 mouseDirection)
@@ -38,9 +47,7 @@ public class Weapon : MonoBehaviour
         float mouseY = Vector2.Dot(Vector2.up, mouseDirection);
 
         // 값을 애니메이터에 적용
-        Anim.SetFloat("mouseX", mouseX);
-        Anim.SetFloat("mouseY", mouseY);
-        Anim.SetFloat("inputX", mouseX);
-        Anim.SetFloat("inputY", mouseY);
+        anim.SetFloat("mouseX", mouseX);
+        anim.SetFloat("mouseY", mouseY);
     }
 }

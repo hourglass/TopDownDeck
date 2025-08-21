@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 450d78cfca014984599d04b59fd93e08, type: 3}
-  m_Name: Magicn_Slash
+  m_Name: Bloody_Slash
   m_EditorClassIdentifier: 
   motions:
-  - {fileID: 11400000, guid: 203dc326ab49f554eaf4bf6f3b5be7b0, type: 2}
-  - {fileID: 11400000, guid: 9bc551676b131304a9a282b1c9f6588f, type: 2}
+  - {fileID: 11400000, guid: 91d518c1fe2b27045b023a58bc93f1bb, type: 2}
+  - {fileID: 11400000, guid: e2d60371b5209254ca252de434b626cd, type: 2}
+  motionTime: 0.4

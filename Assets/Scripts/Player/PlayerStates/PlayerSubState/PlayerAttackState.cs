@@ -6,6 +6,7 @@ public class PlayerAttackState : PlayerAbilityState
 {
     private Weapon weapon;
 
+
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, Weapon weapon) : base(player, stateMachine, playerData, animBoolName)
     {
         this.weapon = weapon;
@@ -16,8 +17,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
         weapon.Enter();
 
-        player.PlayerMotionController.UpdateAnimations("Attack");
-        weapon.WeaponMotionController.UpdateAnimations("VFX");
+        player.CurrentMotionController.UpdateAnimations("Attack");
 
         mouseDirection = player.GetMouseDirection();
         player.CheckIfShouldFlip(mouseDirection);
@@ -35,7 +35,8 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.LogicUpdate();
 
-        if (Time.time >= startTime + 0.4f)
+
+        if (Time.time >= startTime + playerData.attackTime)
         {
             stateMachine.ChangeState(player.IdleState);
             return;

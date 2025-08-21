@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VFX BT
+  m_Name: Melee Attack BT
   m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
@@ -46,7 +46,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: d9b815624022b4142bd4a9ec90b66f69, type: 2}
     m_Threshold: 0.14285715
-    m_Position: {x: 1, y: 1}
+    m_Position: {x: 0.707, y: 0.707}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: inputX
@@ -62,7 +62,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 3570a8ef50bb38b49aff13113592f665, type: 2}
     m_Threshold: 0.42857143
-    m_Position: {x: 1, y: -1}
+    m_Position: {x: 0.707, y: -0.707}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: inputX
@@ -78,7 +78,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 3570a8ef50bb38b49aff13113592f665, type: 2}
     m_Threshold: 0.71428573
-    m_Position: {x: -1, y: -1}
+    m_Position: {x: -0.707, y: -0.707}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: inputX
@@ -94,7 +94,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: d9b815624022b4142bd4a9ec90b66f69, type: 2}
     m_Threshold: 1
-    m_Position: {x: -1, y: 1}
+    m_Position: {x: -0.707, y: 0.707}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: inputX
@@ -129,7 +129,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 200, y: -40, z: 0}
   m_EntryPosition: {x: 200, y: 0, z: 0}
-  m_ExitPosition: {x: 800, y: 10, z: 0}
+  m_ExitPosition: {x: 800, y: 0, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -572175601549791423}
 --- !u!1101 &-918192753010907144
@@ -223,19 +223,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: mouseX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: mouseY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

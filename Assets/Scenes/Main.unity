@@ -3422,7 +3422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ab09d615daafe40aa6693d74bef606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VFXMotionSet: {fileID: 11400000, guid: 85780393bfd8e6e4cbd93963477f4906, type: 2}
+  MeleeAttackMotionSet: {fileID: 11400000, guid: 85780393bfd8e6e4cbd93963477f4906, type: 2}
 --- !u!95 &1925704361
 Animator:
   serializedVersion: 5
