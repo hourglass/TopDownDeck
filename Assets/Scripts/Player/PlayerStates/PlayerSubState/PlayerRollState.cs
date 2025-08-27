@@ -7,7 +7,6 @@ public class PlayerRollState : PlayerAbilityState
 {
     private int amountOfRollsLeft;
 
-    private float lastRollTime;
 
     public PlayerRollState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -32,7 +31,7 @@ public class PlayerRollState : PlayerAbilityState
     {
         base.Exit();
 
-        lastRollTime = Time.time;
+        exitTime = Time.time;
         player.RB.drag = 0f;
     }
 
@@ -65,7 +64,7 @@ public class PlayerRollState : PlayerAbilityState
         }
         else
         {
-            if (Time.time >= lastRollTime + playerData.rollCoolDown)
+            if (Time.time >= exitTime + playerData.rollCoolDown)
             {
                 amountOfRollsLeft = playerData.amountOfRolls;
                 return true;

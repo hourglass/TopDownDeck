@@ -17,4 +17,5 @@ public class PlayerData : ScriptableObject
 
     [Header("Attack State")]
     public float attackTime = 0.4f;
+    public float attackCoolDown = 0.1f;
 }

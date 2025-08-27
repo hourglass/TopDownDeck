@@ -10,7 +10,7 @@ public class MotionController
 
 
     public void Initialize(Animator anim)
-    {   
+    {
         animator = anim;
         if (animator.runtimeAnimatorController != null)
         {
@@ -36,8 +36,9 @@ public class MotionController
 
     public void SetAnimations(string motionType, MotionSetData motionSet)
     {
-        // MotionSet Ä³½Ì
         if (motionSet == null) return;
+
+        // MotionSet Ä³½Ì
         cachedAnimations[motionType].Clear();
         for (int i = 0; i < motionSet.motions.Length; i++)
         {

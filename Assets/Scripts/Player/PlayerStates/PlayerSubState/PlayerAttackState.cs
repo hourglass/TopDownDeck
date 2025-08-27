@@ -29,12 +29,13 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Exit();
         weapon.Exit();
+
+        exitTime = Time.time;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
 
         if (Time.time >= startTime + playerData.attackTime)
         {
@@ -55,6 +56,11 @@ public class PlayerAttackState : PlayerAbilityState
             return false;
         }
 
-        return true;
+        if (Time.time >= exitTime + playerData.attackCoolDown)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

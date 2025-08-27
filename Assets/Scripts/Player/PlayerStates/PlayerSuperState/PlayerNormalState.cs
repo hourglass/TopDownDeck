@@ -32,7 +32,7 @@ public class PlayerNormalState : PlayerState
         moveInput = player.InputHandler.MovementInput;
 
         attackInput = player.InputHandler.AttackInput;
-        if (attackInput)
+        if (attackInput && player.AttackState.CanAttack())
         {
             // 공격 상태 전환
             stateMachine.ChangeState(player.AttackState);

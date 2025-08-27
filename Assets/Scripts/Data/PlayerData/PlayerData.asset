@@ -18,3 +18,5 @@ MonoBehaviour:
   rollDrag: 5
   rollTime: 0.35
   rollCoolDown: 0.5
+  attackTime: 0.4
+  attackCoolDown: 0.1
