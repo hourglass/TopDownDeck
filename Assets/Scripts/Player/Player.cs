@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -21,10 +20,10 @@ public class Player : MonoBehaviour
     public PlayerRollState RollState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
 
+    public PlayerInputHandler InputHandler { get; private set; }
     public MotionController CurrentMotionController { get; private set; }
     public AnimationEventReceiver CurrentAnimationEventReceiver { get; private set; }
 
-    public PlayerInputHandler InputHandler { get; private set; }
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
@@ -57,12 +56,16 @@ public class Player : MonoBehaviour
         CurrentMotionController.RegisterMotionSet("Attack", attackMotionSet);
 
         CurrentAnimationEventReceiver.Initialize(Anim);
-        if (weapon.TryGetComponent(out AnimationEventManager manager))
+        if (weapon != null)
         {
-            CurrentAnimationEventReceiver.RegisterEventEntries("Attack", manager.eventEntries);
+            if (weapon.TryGetComponent(out AnimationEventManager manager))
+            {
+                manager.subscriber = gameObject;
+                CurrentAnimationEventReceiver.RegisterEventEntries("Attack", manager.eventEntries);
+            }
         }
 
-        StateMachine.Initailize(IdleState);
+        StateMachine.Initialize(IdleState);
 
         cam = Camera.main;
         facingDirection = 1f;

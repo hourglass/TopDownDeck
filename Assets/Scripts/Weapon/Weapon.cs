@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour
     public AnimationEventManager CurrentAnimationEventManager { get; private set; }
 
 
+    private Player player;
+
     private Animator anim;
 
     private bool isMeleeAttack;
@@ -28,6 +30,16 @@ public class Weapon : MonoBehaviour
 
         CurrentMotionController.Initialize(anim);
         CurrentMotionController.RegisterMotionSet("MeleeAttack", MeleeAttackMotionSet);
+
+        if (CurrentAnimationEventManager.subscriber == null)
+        {
+            Debug.LogError($"AnimationEventManager.subscriber가 설정되지 않았습니다.");
+            return;
+        }
+        if (!CurrentAnimationEventManager.subscriber.TryGetComponent(out player))
+        {
+            Debug.LogError($"Player 컴포넌트가 {CurrentAnimationEventManager.subscriber.name}에 없습니다.");
+        }
     }
 
     public void Enter()
@@ -54,14 +66,15 @@ public class Weapon : MonoBehaviour
         anim.SetFloat("mouseY", mouseY);
     }
 
-
-    public void Test()
+    public void AttackLauch()
     {
-        Debug.Log("Weapon.Test: Called");
+        Vector2 mouseDirection = player.GetMouseDirection();
+        player.RB.drag = 100f;
+        player.RB.AddForce(mouseDirection * 10f, ForceMode2D.Impulse);
     }
 
-    public void Test2()
+    public void ResetDrag()
     {
-        Debug.Log("Weapon.Test2: Called");
+        player.RB.drag = 0f;
     }
 }

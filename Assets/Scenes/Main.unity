@@ -3514,7 +3514,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1925704360}
           m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
-          m_MethodName: Test
+          m_MethodName: AttackLauch
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3524,14 +3524,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    triggerTime: 0.2
+    triggerTime: 0.1
     hasTriggered: 0
   - onTriggered:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1925704360}
           m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
-          m_MethodName: Test2
+          m_MethodName: ResetDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3541,8 +3541,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    triggerTime: 0.595
+    triggerTime: 0.9
     hasTriggered: 0
+  subscriber: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

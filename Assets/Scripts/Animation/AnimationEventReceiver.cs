@@ -27,14 +27,21 @@ public class AnimationEventReceiver
             return;
         }
 
-        // triggerTime 순으로 정렬
-        entries.Sort((a, b) => a.triggerTime.CompareTo(b.triggerTime));
-        for (int i = 0; i < entries.Count; i++)
+        if (!cachedEntries.ContainsKey(stateName))
         {
-            entries[i].hasTriggered = false;
+            cachedEntries[stateName] = entries;
+        }
+        else
+        {
+            cachedEntries[stateName].AddRange(entries);
         }
 
-        cachedEntries[stateName] = entries;
+        // triggerTime 순으로 정렬
+        cachedEntries[stateName].Sort((a, b) => a.triggerTime.CompareTo(b.triggerTime));
+        for (int i = 0; i < cachedEntries[stateName].Count; i++)
+        {
+            cachedEntries[stateName][i].hasTriggered = false;
+        }
     }
 
     public void LogicUpdate(string stateName)

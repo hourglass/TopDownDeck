@@ -7,11 +7,12 @@ using UnityEngine.Events;
 public class AnimationEventEntry
 {
     public UnityEvent onTriggered;
-    [Range(0f, 1f)] public float triggerTime;
+    [Range(0f, 0.9f)] public float triggerTime;
     [HideInInspector] public bool hasTriggered;
 }
 
 public class AnimationEventManager : MonoBehaviour
 {
     public List<AnimationEventEntry> eventEntries;
+    [HideInInspector] public GameObject subscriber;
 }
