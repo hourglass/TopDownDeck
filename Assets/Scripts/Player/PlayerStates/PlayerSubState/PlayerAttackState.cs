@@ -29,6 +29,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Exit();
         weapon.Exit();
+        player.CurrentAnimationEventReceiver.ResetTrigger("Attack");
 
         exitTime = Time.time;
     }
@@ -36,6 +37,7 @@ public class PlayerAttackState : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        player.CurrentAnimationEventReceiver.LogicUpdate("Attack");
 
         if (Time.time >= startTime + playerData.attackTime)
         {

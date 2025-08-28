@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
 
     public MotionController CurrentMotionController { get; private set; }
 
+    public AnimationEventManager CurrentAnimationEventManager { get; private set; }
+
 
     private Animator anim;
 
@@ -22,6 +24,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        CurrentAnimationEventManager = GetComponent<AnimationEventManager>();
 
         CurrentMotionController.Initialize(anim);
         CurrentMotionController.RegisterMotionSet("MeleeAttack", MeleeAttackMotionSet);
@@ -49,5 +52,16 @@ public class Weapon : MonoBehaviour
         // 값을 애니메이터에 적용
         anim.SetFloat("mouseX", mouseX);
         anim.SetFloat("mouseY", mouseY);
+    }
+
+
+    public void Test()
+    {
+        Debug.Log("Weapon.Test: Called");
+    }
+
+    public void Test2()
+    {
+        Debug.Log("Weapon.Test2: Called");
     }
 }

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public PlayerAttackState AttackState { get; private set; }
 
     public MotionController CurrentMotionController { get; private set; }
+    public AnimationEventReceiver CurrentAnimationEventReceiver { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
     public Animator Anim { get; private set; }
@@ -36,13 +37,14 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        CurrentMotionController = new MotionController();
-
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
+
+        CurrentMotionController = new MotionController();
+        CurrentAnimationEventReceiver = new AnimationEventReceiver();
     }
 
     private void Start()
@@ -53,6 +55,12 @@ public class Player : MonoBehaviour
 
         CurrentMotionController.Initialize(Anim);
         CurrentMotionController.RegisterMotionSet("Attack", attackMotionSet);
+
+        CurrentAnimationEventReceiver.Initialize(Anim);
+        if (weapon.TryGetComponent(out AnimationEventManager manager))
+        {
+            CurrentAnimationEventReceiver.RegisterEventEntries("Attack", manager.eventEntries);
+        }
 
         StateMachine.Initailize(IdleState);
 
