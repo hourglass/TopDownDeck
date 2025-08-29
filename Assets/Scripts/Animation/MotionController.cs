@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class MotionController
 {
-    private Animator animator;
     private AnimatorOverrideController overrideController;
-    private Dictionary<string, Dictionary<int, AnimationClip[]>> cachedAnimations = new Dictionary<string, Dictionary<int, AnimationClip[]>>();
-    private Dictionary<string, int> currentMotionSteps = new Dictionary<string, int>();
+    private Dictionary<string, Dictionary<int, AnimationClip[]>> cachedAnimations;
+    private Dictionary<string, int> currentMotionSteps;
 
 
-    public void Initialize(Animator anim)
+    public void Initialize(Animator animator)
     {
-        animator = anim;
         if (animator.runtimeAnimatorController != null)
         {
             overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
@@ -24,7 +22,11 @@ public class MotionController
         else
         {
             Debug.LogError("Animator의 runtimeAnimatorController가 설정되지 않았습니다!");
+            return;
         }
+
+        cachedAnimations = new Dictionary<string, Dictionary<int, AnimationClip[]>>();
+        currentMotionSteps = new Dictionary<string, int>();
     }
 
     public void RegisterMotionSet(string motionType, MotionSetData motionSet)
