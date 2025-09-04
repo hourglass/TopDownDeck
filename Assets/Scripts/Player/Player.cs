@@ -5,13 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private Weapon weapon;
+    public Weapon weapon;
 
     public PlayerData playerData;
     public MotionSetData attackMotionSet;
     public MotionSetData chargeMotionSet;
-    public MotionSetData skillMotionSet;
 
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
