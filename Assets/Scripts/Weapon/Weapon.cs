@@ -8,10 +8,12 @@ public class Weapon : MonoBehaviour
 
     public MotionController CurrentMotionController { get; private set; }
 
-    public AnimationEventManager CurrentAnimationEventManager { get; private set; }
+    public AnimationEventController CurrentAnimationEventController { get; private set; }
+
+    public Vector2 CurrentDirection { get; set; }
 
 
-    private Player player;
+    private Rigidbody2D subscriberRB;
 
     private Animator anim;
 
@@ -26,19 +28,19 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        CurrentAnimationEventManager = GetComponent<AnimationEventManager>();
+        CurrentAnimationEventController = GetComponent<AnimationEventController>();
 
         CurrentMotionController.Initialize(anim);
         CurrentMotionController.RegisterMotionSet("MeleeAttack", MeleeAttackMotionSet);
 
-        if (CurrentAnimationEventManager.subscriber == null)
+        if (CurrentAnimationEventController.subscriber == null)
         {
-            Debug.LogError($"AnimationEventManager.subscriber가 설정되지 않았습니다.");
+            Debug.LogError($"AnimationEventController.subscriber가 설정되지 않았습니다.");
             return;
         }
-        if (!CurrentAnimationEventManager.subscriber.TryGetComponent(out player))
+        if (!CurrentAnimationEventController.subscriber.TryGetComponent(out subscriberRB))
         {
-            Debug.LogError($"Player 컴포넌트가 {CurrentAnimationEventManager.subscriber.name}에 없습니다.");
+            Debug.LogError($"컴포넌트가 {CurrentAnimationEventController.subscriber.name}에 없습니다.");
         }
     }
 
@@ -55,26 +57,20 @@ public class Weapon : MonoBehaviour
         anim.SetBool("meleeAttack", isMeleeAttack);
     }
 
-    public void SetAnimValueByMouseDirection(Vector2 mouseDirection)
+    public void SetAnimValueByDirection()
     {
         // 벡터의 내적을 통해 입력 값을 -1 ~ 1 범위로 변환(cos t)
-        float mouseX = Vector2.Dot(Vector2.right, mouseDirection);
-        float mouseY = Vector2.Dot(Vector2.up, mouseDirection);
+        float dirX = Vector2.Dot(Vector2.right, CurrentDirection);
+        float dirY = Vector2.Dot(Vector2.up, CurrentDirection);
 
         // 값을 애니메이터에 적용
-        anim.SetFloat("mouseX", mouseX);
-        anim.SetFloat("mouseY", mouseY);
+        anim.SetFloat("mouseX", dirX);
+        anim.SetFloat("mouseY", dirY);
     }
 
     public void AttackLauch()
     {
-        Vector2 mouseDirection = player.GetMouseDirection();
-        player.RB.drag = 100f;
-        player.RB.AddForce(mouseDirection * 10f, ForceMode2D.Impulse);
-    }
-
-    public void ResetDrag()
-    {
-        player.RB.drag = 0f;
+        subscriberRB.drag = 100f;
+        subscriberRB.AddForce(CurrentDirection * 20f, ForceMode2D.Impulse);
     }
 }

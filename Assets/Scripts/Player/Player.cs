@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
 
     public PlayerInputHandler InputHandler { get; private set; }
     public MotionController CurrentMotionController { get; private set; }
-    public AnimationEventReceiver CurrentAnimationEventReceiver { get; private set; }
 
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -43,7 +42,6 @@ public class Player : MonoBehaviour
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
 
         CurrentMotionController = new MotionController();
-        CurrentAnimationEventReceiver = new AnimationEventReceiver();
     }
 
     private void Start()
@@ -55,13 +53,11 @@ public class Player : MonoBehaviour
         CurrentMotionController.Initialize(Anim);
         CurrentMotionController.RegisterMotionSet("Attack", attackMotionSet);
 
-        CurrentAnimationEventReceiver.Initialize(Anim);
         if (weapon != null)
         {
-            if (weapon.TryGetComponent(out AnimationEventManager manager))
+            if (weapon.TryGetComponent(out AnimationEventController controller))
             {
-                manager.subscriber = gameObject;
-                CurrentAnimationEventReceiver.RegisterEventEntries("Attack", manager.eventEntries);
+                controller.Initialize(Anim);
             }
         }
 
@@ -134,24 +130,24 @@ public class Player : MonoBehaviour
         return mouseDirection;
     }
 
-    public void SetAnimValueByMoveInput(Vector2 MoveInput)
+    public void SetAnimValueByMoveInput(Vector2 moveInput)
     {
         // 값을 애니메이터에 적용
-        Anim.SetFloat("inputX", MoveInput.x);
-        Anim.SetFloat("inputY", MoveInput.y);
+        Anim.SetFloat("inputX", moveInput.x);
+        Anim.SetFloat("inputY", moveInput.y);
     }
 
-    public void SetAnimValueByMouseDirection(Vector2 mouseDirection)
+    public void SetAnimValueByDirection(Vector2 direction)
     {
         // 벡터의 내적을 통해 입력 값을 -1 ~ 1 범위로 변환(cos t)
-        float mouseX = Vector2.Dot(Vector2.right, mouseDirection);
-        float mouseY = Vector2.Dot(Vector2.up, mouseDirection);
+        float dirX = Vector2.Dot(Vector2.right, direction);
+        float dirY = Vector2.Dot(Vector2.up, direction);
 
         // 값을 애니메이터에 적용
-        Anim.SetFloat("mouseX", mouseX);
-        Anim.SetFloat("mouseY", mouseY);
-        Anim.SetFloat("inputX", mouseX);
-        Anim.SetFloat("inputY", mouseY);
+        Anim.SetFloat("mouseX", dirX);
+        Anim.SetFloat("mouseY", dirY);
+        Anim.SetFloat("inputX", dirX);
+        Anim.SetFloat("inputY", dirY);
     }
 }
 

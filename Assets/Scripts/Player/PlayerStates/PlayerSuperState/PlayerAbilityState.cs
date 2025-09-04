@@ -19,14 +19,15 @@ public class PlayerAbilityState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
         isAbillityDone = false;
+
     }
 
     public override void Exit()
     {
         base.Exit();
-
         isAbillityDone = true;
+
+        player.RB.drag = 0f;
     }
 }

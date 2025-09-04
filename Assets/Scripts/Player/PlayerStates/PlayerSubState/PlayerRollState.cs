@@ -19,7 +19,7 @@ public class PlayerRollState : PlayerAbilityState
 
         mouseDirection = player.GetMouseDirection();
         player.CheckIfShouldFlip(mouseDirection);
-        player.SetAnimValueByMouseDirection(mouseDirection);
+        player.SetAnimValueByDirection(mouseDirection);
 
         player.RB.drag = playerData.rollDrag;
         player.RB.AddForce(mouseDirection * playerData.rollForce, ForceMode2D.Impulse);
@@ -30,9 +30,7 @@ public class PlayerRollState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
-
         exitTime = Time.time;
-        player.RB.drag = 0f;
     }
 
     public override void LogicUpdate()
@@ -58,13 +56,18 @@ public class PlayerRollState : PlayerAbilityState
             return false;
         }
 
+        if (Time.time <= exitTime + playerData.rollCoolDown)
+        {
+            return false;
+        }
+
         if (amountOfRollsLeft > 0)
         {
             return true;
         }
         else
         {
-            if (Time.time >= exitTime + playerData.rollCoolDown)
+            if (Time.time >= exitTime + playerData.rollReChargingTime)
             {
                 amountOfRollsLeft = playerData.amountOfRolls;
                 return true;

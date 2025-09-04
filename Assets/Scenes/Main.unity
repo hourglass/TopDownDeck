@@ -3387,7 +3387,7 @@ GameObject:
   - component: {fileID: 1925704362}
   - component: {fileID: 1925704361}
   - component: {fileID: 1925704360}
-  - component: {fileID: 1925704363}
+  - component: {fileID: 1925704364}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -3496,7 +3496,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1925704363
+--- !u!114 &1925704364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3505,7 +3505,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1925704358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24e228fd37f5e284692cbfc8b02e0fae, type: 3}
+  m_Script: {fileID: 11500000, guid: 86bdf2b8c8f52264382a2f81f81e4864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventEntries:
@@ -3524,24 +3524,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    triggerTime: 0.1
-    hasTriggered: 0
-  - onTriggered:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1925704360}
-          m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
-          m_MethodName: ResetDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    triggerTime: 0.9
+    triggerTime: 0.025
     hasTriggered: 0
   subscriber: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

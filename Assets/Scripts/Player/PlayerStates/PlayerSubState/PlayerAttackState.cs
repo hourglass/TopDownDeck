@@ -21,23 +21,26 @@ public class PlayerAttackState : PlayerAbilityState
 
         mouseDirection = player.GetMouseDirection();
         player.CheckIfShouldFlip(mouseDirection);
-        player.SetAnimValueByMouseDirection(mouseDirection);
-        weapon.SetAnimValueByMouseDirection(mouseDirection);
+        player.SetAnimValueByDirection(mouseDirection);
+
+        weapon.CurrentDirection = mouseDirection; 
+        weapon.SetAnimValueByDirection();
     }
 
     public override void Exit()
     {
         base.Exit();
-        weapon.Exit();
-        player.CurrentAnimationEventReceiver.ResetTrigger("Attack");
-
         exitTime = Time.time;
+
+        weapon.Exit();
+        weapon.CurrentAnimationEventController.ResetTrigger();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.CurrentAnimationEventReceiver.LogicUpdate("Attack");
+
+        weapon.CurrentAnimationEventController.LogicUpdate();
 
         if (Time.time >= startTime + playerData.attackTime)
         {
@@ -58,11 +61,11 @@ public class PlayerAttackState : PlayerAbilityState
             return false;
         }
 
-        if (Time.time >= exitTime + playerData.attackCoolDown)
+        if (Time.time <= exitTime + playerData.attackCoolDown)
         {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 }
