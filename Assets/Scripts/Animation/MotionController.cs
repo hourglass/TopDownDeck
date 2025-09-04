@@ -73,7 +73,6 @@ public class MotionController
 
         // 클립 동적 교체
         AnimationClip[] clips = cachedAnimations[motionType][currentStep];
-
         overrideController[$"{motionType}_E"] = clips[0];
         overrideController[$"{motionType}_N"] = clips[1];
         overrideController[$"{motionType}_NE"] = clips[2];

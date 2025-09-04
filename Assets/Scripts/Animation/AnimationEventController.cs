@@ -36,14 +36,14 @@ public class AnimationEventController : MonoBehaviour
 
     public void LogicUpdate()
     {
-        if (animator == null || animator.runtimeAnimatorController == null)
+        if (animator == null)
         {
-            Debug.LogWarning("Animator or runtimeAnimatorController is null");
+            Debug.LogWarning("AnimationEventController: Animator is null");
             return;
         }
-
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
+        // 루프 제외 애니메이션 진행률
         float currentTime = stateInfo.normalizedTime % 1;
 
         for (int i = 0; i < eventEntries.Count; i++)

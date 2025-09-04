@@ -23,7 +23,7 @@ public class PlayerAttackState : PlayerAbilityState
         player.CheckIfShouldFlip(mouseDirection);
         player.SetAnimValueByDirection(mouseDirection);
 
-        weapon.CurrentDirection = mouseDirection; 
+        weapon.CurrentDirection = mouseDirection;
         weapon.SetAnimValueByDirection();
     }
 
