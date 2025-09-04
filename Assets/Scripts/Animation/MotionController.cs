@@ -8,7 +8,7 @@ public class MotionController
     private Dictionary<string, int> currentMotionSteps;
 
 
-    public void Initialize(Animator animator)
+    public void Initialize(Animator animator, string motionType, MotionSetData motionSet)
     {
         if (animator.runtimeAnimatorController != null)
         {
@@ -21,19 +21,18 @@ public class MotionController
         }
         else
         {
-            Debug.LogError("Animator의 runtimeAnimatorController가 설정되지 않았습니다!");
+            Debug.LogError("Animator의 runtimeAnimatorController가 설정되지 않았습니다.");
             return;
         }
 
         cachedAnimations = new Dictionary<string, Dictionary<int, AnimationClip[]>>();
         currentMotionSteps = new Dictionary<string, int>();
-    }
 
-    public void RegisterMotionSet(string motionType, MotionSetData motionSet)
-    {
-        // MotionSet 등록
-        cachedAnimations[motionType] = new Dictionary<int, AnimationClip[]>();
-        SetAnimations(motionType, motionSet);
+        if(!cachedAnimations.ContainsKey(motionType))
+        {
+            cachedAnimations[motionType] = new Dictionary<int, AnimationClip[]>();
+            SetAnimations(motionType, motionSet);
+        }
     }
 
     public void SetAnimations(string motionType, MotionSetData motionSet)

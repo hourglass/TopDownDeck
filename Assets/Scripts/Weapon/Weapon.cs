@@ -30,8 +30,7 @@ public class Weapon : MonoBehaviour
         anim = GetComponent<Animator>();
         CurrentAnimationEventController = GetComponent<AnimationEventController>();
 
-        CurrentMotionController.Initialize(anim);
-        CurrentMotionController.RegisterMotionSet("MeleeAttack", MeleeAttackMotionSet);
+        CurrentMotionController.Initialize(anim, "MeleeAttack", MeleeAttackMotionSet);
 
         if (CurrentAnimationEventController.subscriber == null)
         {

@@ -50,8 +50,9 @@ public class Player : MonoBehaviour
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
 
-        CurrentMotionController.Initialize(Anim);
-        CurrentMotionController.RegisterMotionSet("Attack", attackMotionSet);
+        StateMachine.Initialize(IdleState);
+
+        CurrentMotionController.Initialize(Anim, "Attack", attackMotionSet);
 
         if (weapon != null)
         {
@@ -60,8 +61,6 @@ public class Player : MonoBehaviour
                 controller.Initialize(Anim);
             }
         }
-
-        StateMachine.Initialize(IdleState);
 
         cam = Camera.main;
         facingDirection = 1f;
