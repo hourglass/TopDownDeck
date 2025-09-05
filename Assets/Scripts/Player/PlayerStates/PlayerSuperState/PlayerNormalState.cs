@@ -10,6 +10,8 @@ public class PlayerNormalState : PlayerState
 
     private bool attackInput;
 
+    private bool chargingInput;
+
 
     public PlayerNormalState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -46,6 +48,12 @@ public class PlayerNormalState : PlayerState
             stateMachine.ChangeState(player.RollState);
             player.InputHandler.UseRollInput();
             return;
+        }
+
+        chargingInput = player.InputHandler.ChargingInput;
+        if (chargingInput)
+        { 
+            
         }
     }
 

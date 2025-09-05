@@ -1114,7 +1114,6 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 71d1930321beeee49a057d1eba15c771, type: 2}
   attackMotionSet: {fileID: 11400000, guid: 3bc568b908fd9e846b93a491b988ff66, type: 2}
   chargeMotionSet: {fileID: 0}
-  skillMotionSet: {fileID: 0}
 --- !u!50 &1372254969
 Rigidbody2D:
   serializedVersion: 4
@@ -3524,7 +3523,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    triggerTime: 0.025
+    triggerTime: 0.02
     hasTriggered: 0
   subscriber: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

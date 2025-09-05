@@ -66,7 +66,7 @@ public class PlayerRollState : PlayerAbilityState
         }
         else
         {
-            if (Time.time >= exitTime + playerData.rollReChargingTime)
+            if (Time.time >= exitTime + playerData.rollRechargingTime)
             {
                 amountOfRollsLeft = playerData.amountOfRolls;
                 return true;

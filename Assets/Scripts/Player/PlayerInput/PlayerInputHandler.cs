@@ -11,18 +11,22 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool AttackInput { get; private set; }
 
+    public bool ChargingInput { get; private set; }
 
-    private float inputHoldTime = 0.2f;
+
+    private float inputResetTime = 0.2f;
 
     private float rollStartTime;
 
     private float attackStartTime;
 
+    private float chargingEndTime;
+
 
     private void Update()
     {
-        CheckRollInputHoldTime();
-        CheckAttackInputHoldTime();
+        CheckRollInputResetTime();
+        CheckAttackInputResetTime();
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -46,13 +50,6 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UseRollInput() => RollInput = false;
 
-    private void CheckRollInputHoldTime()
-    {
-        if (Time.time >= rollStartTime + inputHoldTime)
-        {
-            RollInput = false;
-        }
-    }
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
@@ -61,13 +58,35 @@ public class PlayerInputHandler : MonoBehaviour
             AttackInput = true;
             attackStartTime = Time.time;
         }
+
+        if (context.performed)
+        {
+            ChargingInput = true;
+        }
+
+        if (context.canceled)
+        {
+            ChargingInput = false;
+            chargingEndTime = Time.time;
+        }
     }
 
-    public void UseAttackInput() => RollInput = false;
+    public void UseAttackInput() => AttackInput = false;
 
-    private void CheckAttackInputHoldTime()
+    public float GetChargingEndTime() => chargingEndTime;
+
+
+    private void CheckRollInputResetTime()
     {
-        if (Time.time >= attackStartTime + inputHoldTime)
+        if (Time.time >= rollStartTime + inputResetTime)
+        {
+            RollInput = false;
+        }
+    }
+
+    private void CheckAttackInputResetTime()
+    {
+        if (Time.time >= attackStartTime + inputResetTime)
         {
             AttackInput = false;
         }
