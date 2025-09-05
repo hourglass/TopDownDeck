@@ -66,8 +66,11 @@ public class PlayerInputHandler : MonoBehaviour
 
         if (context.canceled)
         {
-            ChargingInput = false;
-            chargingEndTime = Time.time;
+            if (ChargingInput)
+            {
+                ChargingInput = false;
+                chargingEndTime = Time.time;
+            }
         }
     }
 

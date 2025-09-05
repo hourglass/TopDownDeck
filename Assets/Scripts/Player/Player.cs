@@ -9,13 +9,14 @@ public class Player : MonoBehaviour
 
     public PlayerData playerData;
     public MotionSetData attackMotionSet;
-    public MotionSetData chargeMotionSet;
+    public MotionSetData chargingMotionSet;
 
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
     public PlayerRollState RollState { get; private set; }
-    public PlayerAttackState AttackState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; } 
+    public PlayerChargingState ChargingState { get; private set; }
 
     public PlayerInputHandler InputHandler { get; private set; }
     public MotionController CurrentMotionController { get; private set; }
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         RollState = new PlayerRollState(this, StateMachine, playerData, "roll");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
+        ChargingState = new PlayerChargingState(this, StateMachine, playerData, "charging", weapon);
 
         CurrentMotionController = new MotionController();
     }
